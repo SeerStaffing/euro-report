@@ -27,6 +27,8 @@ Both are undesirable. The guiding principle going forward:
 **Goals**
 - Curator can approve links **without any access to source code** and **without
   source commits**.
+- Curator can curate **topics** (enable/disable, reorder, **prioritize**, rename)
+  but **not** feeds and **not** the topic match-terms.
 - Source code changes remain PR-governed with documented commits.
 - Public site stays fully static, no end-user-visible API calls.
 - Cost stays at/near $0.
@@ -44,7 +46,7 @@ Split the system into two repositories with distinct ownership.
 | | **Source / code plane** | **Content / data plane** |
 |---|---|---|
 | Repo | `euro-report` (existing) | `euro-report-content` (new) |
-| Holds | template, `scripts/*.mjs`, workflows, `feeds.json`, `keywords.json`, docs | `approved.json`, `pending.json`, `seen.json` |
+| Holds | template, `scripts/*.mjs`, workflows, `feeds.json`, topic **terms** (`config/topics.json`), docs | `approved.json`, `pending.json`, `seen.json`, topic **curation** (`keywords.json`: enabled/order/priority/label) |
 | Who writes | developers, via **PR + documented commit** | curator, via the **local console**; parser bot for candidates |
 | Governance | branch + PR (CHANGE_CONTROL.md) | content commits isolated to this repo; never touches source |
 | Curator access | **none** | collaborator on this repo only |
@@ -89,6 +91,39 @@ euro-report-content ──▶ triggers publish (§5) ──▶ site updates
   attributable approvals — while **source history stays free of approval churn**.
 - **Effort:** moderate; reuse the existing console UI + a small API client
   (`getFile`, `putFile`). No infra; $0.
+
+### 4.1 Keyword curation & triage (console-only)
+
+Topics are split so the curator manages presentation/priority while devs own the
+matching logic:
+
+- **Source — `config/topics.json`** (dev-managed, PR-governed): the canonical list
+  of topics and their **match terms** (the words/phrases that tag a headline).
+- **Content — `keywords.json`** (admin-managed, via console): per-topic
+  **`enabled`**, **`order`**, **`priority`**, and optional **`label`** override.
+  Joined to the source topics by a stable `id`.
+
+The console gets a **topic selector/prioritizer**: a list of the dev-defined
+topics where the curator can toggle on/off, drag to reorder, set a priority, and
+rename. Match terms are **not** exposed for editing. Saving commits `keywords.json`
+to the content repo only.
+
+**Keyword priority is a console triage aid — it does NOT affect the prod site.**
+When reviewing parser candidates (`pending.json`), the console **buckets** them:
+
+```
+┌ Priority topics (admin keyword priority desc) ┐   ← review these first
+│  [Politics] headline … [approve] [reject]      │
+│  [Economy]  headline … [approve] [reject]      │
+└────────────────────────────────────────────────┘
+┌ Everything else (all other parser results) ────┐
+│  headline … [approve] [reject]                  │
+└────────────────────────────────────────────────┘
+```
+
+The prod page is unchanged by this: it still renders by **headline** priority
+(p1/p2/p3) and offers visitor topic-filter chips. Keyword priority only orders/
+buckets the **admin's review queue**.
 
 ---
 
@@ -153,12 +188,15 @@ essentially **just the domain (~$12/yr)**.
 
 - [x] Content lives in a **separate content repo** (curator out of source).
 - [x] Template/layout = **source code** (PR-governed).
+- [x] **Feeds** stay source-only (locked); curator cannot manage feeds.
+- [x] **Topics**: curator curates the set (enable/disable, reorder, prioritize,
+      rename); **match terms stay dev-managed** (source `config/topics.json`).
+- [x] **Keyword priority** = admin-console triage/bucketing only; **not** reflected
+      on the prod site.
 - [ ] Cross-repo trigger: **`repository_dispatch` via GitHub App** (§5.1 A) vs
       **schedule** (B)?
 - [ ] Parser stays an Action in the **source** repo writing to content (assumed) —
       confirm.
-- [ ] Are `feeds.json` / `keywords.json` source (PR-governed) — assumed yes — or
-      should the curator manage feeds/topics too?
 - [ ] Host: stay on GitHub Pages, or cut over to Cloudflare Pages?
 - [ ] Repo visibility: keep public, or go private (drives §5.2 read auth)?
 - [ ] Custom domain: register one? which?
@@ -171,7 +209,9 @@ essentially **just the domain (~$12/yr)**.
    `approved.json` / `pending.json` / `seen.json` there; grant curator access to it
    only. Repoint parser output + build input across repos (bot token / GitHub App).
 2. **Phase 2 — console:** build local `admin.html` (PAT scoped to content repo;
-   reads pending/approved, commits approved). Immediate curator UX win, no infra.
+   reads pending/approved, commits approved). Includes the **topic
+   selector/prioritizer** (§4.1) and the keyword-priority **triage buckets** for
+   reviewing parser candidates. Immediate curator UX win, no infra.
 3. **Phase 3 — hosting:** Cloudflare Pages + custom domain; optionally flip repos
    to private.
 4. **Phase 4 — polish:** analytics, meta tags, favicon, licensing review.
