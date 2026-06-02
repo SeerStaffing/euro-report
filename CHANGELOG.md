@@ -6,6 +6,11 @@ uses [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+- Bumped workflow actions to Node 24-compatible majors (checkout v6, setup-node v6,
+  configure-pages v6, upload-pages-artifact v5, deploy-pages v5) to clear the
+  Node 20 deprecation warning ahead of the 2026-06-16 runner change.
+
 ### Added
 - **Decoupled production pipeline** (GitHub Actions + Pages):
   - `scripts/parse.mjs` — scheduled parser fetches UK feeds server-side (no CORS
