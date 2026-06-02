@@ -1,8 +1,2000 @@
 [
-  { "id": "sample-001", "title": "Chancellor signals tax changes ahead of autumn Budget", "url": "https://example.com/politics/budget", "source": "Euro Report (sample)", "region": "EU", "priority": "p1", "featured": true, "flash": false, "addedAt": "2026-06-02T00:00:00.000Z" },
-  { "id": "sample-002", "title": "Bank of England holds interest rates as inflation eases", "url": "https://example.com/economy/boe", "source": "Euro Report (sample)", "region": "EU", "priority": "p1", "featured": false, "flash": false, "addedAt": "2026-06-02T00:00:00.000Z" },
-  { "id": "sample-003", "title": "NHS waiting lists fall for third month, hospitals report", "url": "https://example.com/health/nhs", "source": "Euro Report (sample)", "region": "EU", "priority": "p2", "featured": false, "flash": false, "addedAt": "2026-06-02T00:00:00.000Z" },
-  { "id": "sample-004", "title": "Premier League: transfer deadline day fixtures confirmed", "url": "https://example.com/sport/football", "source": "Euro Report (sample)", "region": "EU", "priority": "p2", "featured": false, "flash": false, "addedAt": "2026-06-02T00:00:00.000Z" },
-  { "id": "sample-005", "title": "Met Office issues amber storm warning across Scotland", "url": "https://example.com/weather/storm", "source": "Euro Report (sample)", "region": "EU", "priority": "p3", "featured": false, "flash": true, "addedAt": "2026-06-02T00:00:00.000Z" },
-  { "id": "sample-006", "title": "Ukraine talks resume as European leaders meet in Brussels", "url": "https://example.com/world/ukraine", "source": "Euro Report (sample)", "region": "EU", "priority": "p3", "featured": false, "flash": false, "addedAt": "2026-06-02T00:00:00.000Z" }
+  {
+    "id": "7d7dd0790cff",
+    "title": "Murdered student told police 'I can't breathe' while handcuffed",
+    "url": "https://www.bbc.com/news/articles/crlpyw05l75o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC News",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Crime",
+      "Education",
+      "Weather"
+    ],
+    "addedAt": "2026-06-02T14:52:53.050Z"
+  },
+  {
+    "id": "d14a77287138",
+    "title": "Murrell used SNP cards for £400,000 spending spree",
+    "url": "https://www.bbc.com/news/articles/cgmp0pxyze8o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC News",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:53.050Z"
+  },
+  {
+    "id": "d25e524970c6",
+    "title": "Five questions left unanswered by the Mandelson files",
+    "url": "https://www.bbc.com/news/articles/cn4p9pv13kdo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC News",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:53.050Z"
+  },
+  {
+    "id": "b380adfaf5f4",
+    "title": "UK Athletics fined £350,000 over death of Paralympian",
+    "url": "https://www.bbc.com/sport/athletics/articles/c1e2x1qze8vo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC News",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:53.050Z"
+  },
+  {
+    "id": "90de04e19c09",
+    "title": "Ukraine rescuers pull dead from rubble after Russian strikes kill 21 people",
+    "url": "https://www.bbc.com/news/articles/c5y8nq8ljqwo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC News",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Weather",
+      "Transport",
+      "World"
+    ],
+    "addedAt": "2026-06-02T14:52:53.050Z"
+  },
+  {
+    "id": "66cac8d4a825",
+    "title": "Scotland legend Sir Kenny Dalglish undergoing treatment for cancer",
+    "url": "https://www.bbc.com/sport/football/articles/clyp4e14m1do?at_medium=RSS&at_campaign=rss",
+    "source": "BBC News",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "NHS/Health"
+    ],
+    "addedAt": "2026-06-02T14:52:53.050Z"
+  },
+  {
+    "id": "25169e3dc5b6",
+    "title": "More black men to benefit from prostate cancer screening trial",
+    "url": "https://www.bbc.com/news/articles/c4g91jrl349o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC News",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "NHS/Health",
+      "Crime"
+    ],
+    "addedAt": "2026-06-02T14:52:53.050Z"
+  },
+  {
+    "id": "ab114a59ebbb",
+    "title": "Hackers trick Instagram AI chatbot into giving access to other users' accounts",
+    "url": "https://www.bbc.com/news/articles/c98rzr72dpyo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC News",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:53.050Z"
+  },
+  {
+    "id": "4ed754f67243",
+    "title": "Idris Elba and Torvill and Dean receive honours at Windsor Castle",
+    "url": "https://www.bbc.com/news/articles/cze24k0j0njo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC News",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Royals"
+    ],
+    "addedAt": "2026-06-02T14:52:53.050Z"
+  },
+  {
+    "id": "6691afdee4ad",
+    "title": "Cara Delevingne says new music was inspired by getting sober",
+    "url": "https://www.bbc.com/news/articles/crkpypyv2d2o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC News",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:53.051Z"
+  },
+  {
+    "id": "e8d4172e87ad",
+    "title": "Third of people say uni degree not worth it, as student loan inquiry begins",
+    "url": "https://www.bbc.com/news/articles/c2e29gk73rjo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC News (UK)",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Education"
+    ],
+    "addedAt": "2026-06-02T14:52:53.262Z"
+  },
+  {
+    "id": "914d81b96dcd",
+    "title": "Body found after river search for missing boy, 11",
+    "url": "https://www.bbc.com/news/articles/czx2j2l5k92o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC News (UK)",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:53.262Z"
+  },
+  {
+    "id": "b3766f28ad86",
+    "title": "Genital herpes rising in England, despite overall drop in STIs",
+    "url": "https://www.bbc.com/news/articles/cvgzxqq24k9o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC News (UK)",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:53.262Z"
+  },
+  {
+    "id": "9d0adb273f66",
+    "title": "Maga influencer admits Bond Street assault",
+    "url": "https://www.bbc.com/news/articles/c3v2qyp5pzro?at_medium=RSS&at_campaign=rss",
+    "source": "BBC News (UK)",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Crime"
+    ],
+    "addedAt": "2026-06-02T14:52:53.262Z"
+  },
+  {
+    "id": "51a1fad79e8f",
+    "title": "Former Lioness Jill Scott to do 388-mile cycle and run challenge for Sport Relief",
+    "url": "https://www.bbc.com/news/articles/cdrp8m6zyxmo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC News (UK)",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:53.262Z"
+  },
+  {
+    "id": "a294779b8eae",
+    "title": "Police officer received death threats over Nowak murder case as Mahmood condemns ‘dangerous’ commentary – UK politics live",
+    "url": "https://www.theguardian.com/politics/live/2026/jun/02/peter-mandelson-keir-starmer-labour-leadership-snp-peter-murrell-latest-news-updates",
+    "source": "Guardian UK",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Politics",
+      "Crime",
+      "Weather"
+    ],
+    "addedAt": "2026-06-02T14:52:53.359Z"
+  },
+  {
+    "id": "fef445e4461c",
+    "title": "Zero-hours contracts: ministers’ detailed plans for UK ban criticised by firms and unions",
+    "url": "https://www.theguardian.com/uk-news/2026/jun/02/zero-hours-contracts-ban-firms-unions",
+    "source": "Guardian UK",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Politics"
+    ],
+    "addedAt": "2026-06-02T14:52:53.359Z"
+  },
+  {
+    "id": "3539a688730b",
+    "title": "‘We’re not making it up’: UK political chaos is not media’s fault, say journalists",
+    "url": "https://www.theguardian.com/media/2026/jun/02/uk-political-chaos-not-medias-fault-say-journalists",
+    "source": "Guardian UK",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:53.359Z"
+  },
+  {
+    "id": "ffdfef65b968",
+    "title": "Shabana Mahmood warns of ‘dangerous undercurrent’ after murder of Henry Nowak",
+    "url": "https://www.theguardian.com/uk-news/2026/jun/02/shabana-mahmood-warns-of-dangerous-undercurrent-after-murder-of-henry-nowak",
+    "source": "Guardian UK",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Crime"
+    ],
+    "addedAt": "2026-06-02T14:52:53.359Z"
+  },
+  {
+    "id": "7739c6e6adb8",
+    "title": "Police condemn calls for ‘vigilante justice’ over murder of Henry Nowak",
+    "url": "https://www.theguardian.com/uk-news/2026/jun/02/hampshire-police-commissioner-urges-religious-knives-review",
+    "source": "Guardian UK",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Crime",
+      "Weather"
+    ],
+    "addedAt": "2026-06-02T14:52:53.359Z"
+  },
+  {
+    "id": "3055f46450ce",
+    "title": "Maga influencer Melissa Rein Lively pleads guilty to London assault",
+    "url": "https://www.theguardian.com/uk-news/2026/jun/02/maga-influencer-melissa-rein-lively-pleads-guilty-london-assault",
+    "source": "Guardian UK",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Crime"
+    ],
+    "addedAt": "2026-06-02T14:52:53.359Z"
+  },
+  {
+    "id": "e999d9fb393e",
+    "title": "Motorhome bought by Murrell with stolen SNP money was driven only 4 miles, court told",
+    "url": "https://www.theguardian.com/uk-news/2026/jun/02/motorhome-peter-murrell-snp-money-high-court-edinburgh",
+    "source": "Guardian UK",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Crime"
+    ],
+    "addedAt": "2026-06-02T14:52:53.359Z"
+  },
+  {
+    "id": "7b455a498a96",
+    "title": "Gardeners beware: slugs returning after dry weather to threaten strawberries",
+    "url": "https://www.theguardian.com/lifeandstyle/2026/jun/02/gardens-slugs-returning-after-dry-weather-threaten-strawberries",
+    "source": "Guardian UK",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Weather"
+    ],
+    "addedAt": "2026-06-02T14:52:53.359Z"
+  },
+  {
+    "id": "8018a9217ba3",
+    "title": "BP backs Amanda Blanc to lead search for new chair despite investor concerns",
+    "url": "https://www.theguardian.com/business/2026/jun/02/bp-amanda-blanc-search-new-chair-albert-manifold",
+    "source": "Guardian UK",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:53.359Z"
+  },
+  {
+    "id": "b97ff3a44b35",
+    "title": "UK government has failed Palestinian people, says senior Labour MP",
+    "url": "https://www.theguardian.com/politics/2026/jun/02/uk-government-failed-palestinian-people-emily-thornberry",
+    "source": "Guardian UK",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Politics"
+    ],
+    "addedAt": "2026-06-02T14:52:53.359Z"
+  },
+  {
+    "id": "d915eef14c2d",
+    "title": "Southampton boss posts apology video after 'Spygate' scandal",
+    "url": "https://news.sky.com/story/southampton-boss-posts-apology-video-after-spygate-scandal-13550014",
+    "source": "Sky News (UK)",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:53.796Z"
+  },
+  {
+    "id": "cd564ea987fc",
+    "title": "Football legend Sir Kenny Dalglish reveals he has cancer",
+    "url": "https://news.sky.com/story/football-legend-kenny-dalglish-reveals-he-has-cancer-13550099",
+    "source": "Sky News (UK)",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "NHS/Health",
+      "Football"
+    ],
+    "addedAt": "2026-06-02T14:52:53.796Z"
+  },
+  {
+    "id": "57ea38978a34",
+    "title": "UK weather: Met Office forecasts increased likelihood of a hot summer",
+    "url": "https://news.sky.com/story/uk-weather-met-office-forecasts-increased-likelihood-of-a-hot-summer-with-heatwave-risk-13550119",
+    "source": "Sky News (UK)",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Weather"
+    ],
+    "addedAt": "2026-06-02T14:52:53.796Z"
+  },
+  {
+    "id": "0da910f3a71c",
+    "title": "US influencer admits assault in Tube station incident",
+    "url": "https://news.sky.com/story/us-influencer-admits-to-assault-in-tube-station-incident-13550044",
+    "source": "Sky News (UK)",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Crime",
+      "Transport"
+    ],
+    "addedAt": "2026-06-02T14:52:53.796Z"
+  },
+  {
+    "id": "e68b818cb04a",
+    "title": "UK Athletics sentenced over death of Paralympian",
+    "url": "https://news.sky.com/story/uk-athletics-fined-163350000-over-death-of-paralympian-hit-by-falling-by-metal-cage-13550001",
+    "source": "Sky News (UK)",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Crime"
+    ],
+    "addedAt": "2026-06-02T14:52:53.796Z"
+  },
+  {
+    "id": "9cbf8b1dd015",
+    "title": "<a href='https://news.sky.com/story/mark-kleinman-blog-see-the-latest-stories-from-sky-news-city-editor-13475361'>Modella plots rent and job cuts at footwear chain Wynsors | Mark Kleinman blog</a>",
+    "url": "https://news.sky.com/story/mark-kleinman-blog-see-the-latest-stories-from-sky-news-city-editor-13505671",
+    "source": "Sky News (UK)",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Politics"
+    ],
+    "addedAt": "2026-06-02T14:52:53.796Z"
+  },
+  {
+    "id": "c88c8eb97eea",
+    "title": "Body found in search for 11-year-old boy",
+    "url": "https://news.sky.com/story/body-found-in-search-for-11-year-old-mackenzie-swift-who-went-missing-in-river-13549727",
+    "source": "Sky News (UK)",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:53.796Z"
+  },
+  {
+    "id": "8140334c5bd8",
+    "title": "UK warned hostile drones could cause mass blackouts",
+    "url": "https://news.sky.com/story/growing-drone-threat-sparks-fears-over-uk-energy-infrastructure-13549839",
+    "source": "Sky News (UK)",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:53.796Z"
+  },
+  {
+    "id": "adc7bdd361a3",
+    "title": "Murder arrests made after man goes missing from boat",
+    "url": "https://news.sky.com/story/three-men-arrested-on-suspicion-of-murder-after-man-goes-missing-from-boat-in-arne-bay-near-poole-13550081",
+    "source": "Sky News (UK)",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Crime"
+    ],
+    "addedAt": "2026-06-02T14:52:53.796Z"
+  },
+  {
+    "id": "8678425d55ef",
+    "title": "Epstein survivor urges Starmer to meet victims after latest Mandelson files released",
+    "url": "https://news.sky.com/story/epstein-survivor-urges-starmer-to-meet-victims-after-latest-mandelson-files-released-13550045",
+    "source": "Sky News (UK)",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Politics"
+    ],
+    "addedAt": "2026-06-02T14:52:53.797Z"
+  },
+  {
+    "id": "88d696bd4649",
+    "title": "Politics latest: Police officer received death threats over Henry Nowak murder, Mahmood says",
+    "url": "https://www.independent.co.uk/news/uk/politics/henry-nowak-police-bodycam-starmer-farage-live-updates-b2987714.html",
+    "source": "The Independent (UK)",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Politics",
+      "Crime",
+      "Weather"
+    ],
+    "addedAt": "2026-06-02T14:52:54.040Z"
+  },
+  {
+    "id": "602a57f4ca93",
+    "title": "Police had contact with house explosion victim four days before she was killed by ex-partner",
+    "url": "https://www.independent.co.uk/news/uk/crime/jo-shaw-bristol-explosion-police-iopc-b2988063.html",
+    "source": "The Independent (UK)",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Crime",
+      "Weather"
+    ],
+    "addedAt": "2026-06-02T14:52:54.040Z"
+  },
+  {
+    "id": "1044afc0144b",
+    "title": "Vickrum Digwa’s family ‘deeply sorry’ to Henry Nowak’s relatives – but warn his murder should not ‘inflame division’",
+    "url": "https://www.independent.co.uk/news/uk/crime/henry-nowak-murder-vickrum-digwa-apology-farage-b2987810.html",
+    "source": "The Independent (UK)",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Crime"
+    ],
+    "addedAt": "2026-06-02T14:52:54.040Z"
+  },
+  {
+    "id": "2dcbf81beeda",
+    "title": "Teenager charged over Peter Kay show ‘bomb hoax’ removed from court hearing after undressing",
+    "url": "https://www.independent.co.uk/news/uk/crime/peter-kay-show-bomb-hoax-omar-majed-court-b2988049.html",
+    "source": "The Independent (UK)",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Crime"
+    ],
+    "addedAt": "2026-06-02T14:52:54.040Z"
+  },
+  {
+    "id": "ea7f4d7ddc62",
+    "title": "Starmer uses disappearing messages on WhatsApp, No 10 admits after Mandelson files released",
+    "url": "https://www.independent.co.uk/news/uk/politics/keir-starmer-mandelson-files-whatsapp-messages-b2987948.html",
+    "source": "The Independent (UK)",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Politics"
+    ],
+    "addedAt": "2026-06-02T14:52:54.040Z"
+  },
+  {
+    "id": "11b2fc06358c",
+    "title": "Henry Nowak murderer Vickrum Digwa faces new weapons charges alongside brother and father",
+    "url": "https://www.independent.co.uk/news/uk/crime/henry-nowak-vickrum-digwa-brother-father-weapons-b2988027.html",
+    "source": "The Independent (UK)",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Crime"
+    ],
+    "addedAt": "2026-06-02T14:52:54.040Z"
+  },
+  {
+    "id": "5ee7c7483bf9",
+    "title": "UK mortgage approvals for house purchases surge to highest level in over a year",
+    "url": "https://www.independent.co.uk/news/uk/home-news/mortgages-uk-house-prices-interest-rates-bank-of-england-b2988018.html",
+    "source": "The Independent (UK)",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:54.040Z"
+  },
+  {
+    "id": "e9723422a988",
+    "title": "The UK government has set a target of an 87% cut in carbon emissions by 2042",
+    "url": "https://www.independent.co.uk/news/uk/politics/london-ed-miliband-climate-change-committee-claire-coutinho-scientists-b2987997.html",
+    "source": "The Independent (UK)",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:54.040Z"
+  },
+  {
+    "id": "93462e31dfb2",
+    "title": "London Tube strikes live: Second day of strike action to go ahead as travel chaos hits capital",
+    "url": "https://www.independent.co.uk/news/uk/home-news/tube-strikes-london-today-tfl-live-updates-b2987680.html",
+    "source": "The Independent (UK)",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Transport"
+    ],
+    "addedAt": "2026-06-02T14:52:54.040Z"
+  },
+  {
+    "id": "53454ea421be",
+    "title": "Five important reasons why people earning high salaries still feel financially squeezed",
+    "url": "https://www.independent.co.uk/money/cost-of-living-energy-bills-mortgages-savings-salaries-b2985140.html",
+    "source": "The Independent (UK)",
+    "region": "EU",
+    "priority": "p1",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:54.040Z"
+  },
+  {
+    "id": "04401f164f78",
+    "title": "'Beleaguered and bereft' - Mandelson messages reveal criticism of No 10",
+    "url": "https://www.bbc.com/news/articles/cwy2431r8xdo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Politics",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:54.267Z"
+  },
+  {
+    "id": "5dd622a4caf5",
+    "title": "Mandelson files: What you need to know",
+    "url": "https://www.bbc.com/news/articles/clyp3gvvxkyo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Politics",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:54.267Z"
+  },
+  {
+    "id": "2d3d18c7c428",
+    "title": "Key messages between Mandelson and ministers",
+    "url": "https://www.bbc.com/news/articles/c4g819dml28o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Politics",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Politics"
+    ],
+    "addedAt": "2026-06-02T14:52:54.267Z"
+  },
+  {
+    "id": "8c4d1c686231",
+    "title": "PM wants delayed defence investment plan published by Nato summit, MPs told",
+    "url": "https://www.bbc.com/news/articles/c78q0x224p9o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Politics",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Politics",
+      "World"
+    ],
+    "addedAt": "2026-06-02T14:52:54.267Z"
+  },
+  {
+    "id": "4dd752b5bdf2",
+    "title": "UK wins court case over collapsed Rwanda asylum deal",
+    "url": "https://www.bbc.com/news/articles/cy526klrk20o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Politics",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Immigration",
+      "Crime"
+    ],
+    "addedAt": "2026-06-02T14:52:54.267Z"
+  },
+  {
+    "id": "b646031402cf",
+    "title": "Sturgeon tells BBC: I'm serving a sentence for crime I didn't commit",
+    "url": "https://www.bbc.com/news/articles/c2027k1ev3zo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Politics",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Crime"
+    ],
+    "addedAt": "2026-06-02T14:52:54.267Z"
+  },
+  {
+    "id": "1a920bb6d3b7",
+    "title": "Streeting suggests NI cut and North Sea drilling",
+    "url": "https://www.bbc.com/news/articles/cy42z03r18xo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Politics",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:54.267Z"
+  },
+  {
+    "id": "a8131fa8f474",
+    "title": "Welsh Labour faces existential crisis, says former minister",
+    "url": "https://www.bbc.com/news/articles/cvgzyvmgv8po?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Politics",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Politics"
+    ],
+    "addedAt": "2026-06-02T14:52:54.267Z"
+  },
+  {
+    "id": "82926e777751",
+    "title": "Ex-M&S chief to help government tackle youth unemployment",
+    "url": "https://www.bbc.com/news/articles/cg5p9y25qj1o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Politics",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Economy"
+    ],
+    "addedAt": "2026-06-02T14:52:54.267Z"
+  },
+  {
+    "id": "58bc216bc46a",
+    "title": "AI giant Anthropic plans to sell shares in US as valuation nears $1tn",
+    "url": "https://www.bbc.com/news/articles/c0k203kzp10o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Business",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:54.507Z"
+  },
+  {
+    "id": "eb6df7e90a9f",
+    "title": "Post Office scandal victim dedicates OBE to 'sub-postmasters we have lost'",
+    "url": "https://www.bbc.com/news/videos/cx2186r2vj8o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Business",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Weather"
+    ],
+    "addedAt": "2026-06-02T14:52:54.507Z"
+  },
+  {
+    "id": "dcd9cae78232",
+    "title": "Steph Curry signs with Chinese brand after Under Armour split",
+    "url": "https://www.bbc.com/news/articles/cj9pky3ldddo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Business",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:54.507Z"
+  },
+  {
+    "id": "cbc957d9ac07",
+    "title": "How 'confused' AI rollout hurts firms and baffles staff",
+    "url": "https://www.bbc.com/news/articles/c74d1ydv01eo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Business",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:54.507Z"
+  },
+  {
+    "id": "3f42ab673e44",
+    "title": "London Tube strikes go ahead after talks fail",
+    "url": "https://www.bbc.com/news/articles/c4g01xv08weo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Business",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Transport"
+    ],
+    "addedAt": "2026-06-02T14:52:54.507Z"
+  },
+  {
+    "id": "f804fe814a11",
+    "title": "China goes after 'ghost kitchens' to rein in cut-throat food delivery apps",
+    "url": "https://www.bbc.com/news/articles/cj4p7zglq5no?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Business",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "World"
+    ],
+    "addedAt": "2026-06-02T14:52:54.507Z"
+  },
+  {
+    "id": "ac889fc5a186",
+    "title": "OpenAI let ChatGPT aid and abet mass shooters, Florida lawsuit claims",
+    "url": "https://www.bbc.com/news/articles/czx2j0v8d2xo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Business",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:54.507Z"
+  },
+  {
+    "id": "33e50984a2ea",
+    "title": "Abusive passengers could be blacklisted from all airlines under new proposal",
+    "url": "https://www.bbc.com/news/articles/c707pknywjno?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Business",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:54.507Z"
+  },
+  {
+    "id": "845fdb7facec",
+    "title": "Labour ‘not looking to raise taxes to fund benefits’ as Mandelson messages suggest",
+    "url": "https://www.theguardian.com/politics/2026/jun/02/labour-not-looking-to-raise-taxes-to-fund-benefits-minister-says-after-whatsapp-messages-revealed",
+    "source": "Guardian Politics",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Politics",
+      "Economy"
+    ],
+    "addedAt": "2026-06-02T14:52:54.569Z"
+  },
+  {
+    "id": "14900ea72d1f",
+    "title": "An horrific murder – and a civil war threatening to tear apart the British right | Joe Mulhall",
+    "url": "https://www.theguardian.com/commentisfree/2026/jun/02/civil-war-british-right-rupert-lowe-nigel-farage-henry-nowak",
+    "source": "Guardian Politics",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Crime"
+    ],
+    "addedAt": "2026-06-02T14:52:54.569Z"
+  },
+  {
+    "id": "bce5a7fd0185",
+    "title": "A red box for Donald Trump, and eight weeks to make it. Now I really am outraged by the Mandy files | Marina Hyde",
+    "url": "https://www.theguardian.com/commentisfree/2026/jun/02/red-box-donald-trump-peter-mandelson-files-keir-starmer-growth",
+    "source": "Guardian Politics",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "World"
+    ],
+    "addedAt": "2026-06-02T14:52:54.569Z"
+  },
+  {
+    "id": "86f3af4b7719",
+    "title": "British politics is fractured and chaotic – but at last it’s brimming with ideas for the future | Polly Toynbee",
+    "url": "https://www.theguardian.com/commentisfree/2026/jun/02/british-politics-ideas-for-the-future-labour-policy-tony-blair",
+    "source": "Guardian Politics",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Politics"
+    ],
+    "addedAt": "2026-06-02T14:52:54.569Z"
+  },
+  {
+    "id": "eac4bb865f0b",
+    "title": "Two dead in Kenya after protests against US planned Ebola quarantine zone",
+    "url": "https://news.sky.com/story/two-dead-in-kenya-after-protests-against-us-planned-ebola-quarantine-zone-as-court-blocks-construction-13550041",
+    "source": "Sky News (Home)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:54.870Z"
+  },
+  {
+    "id": "34aa5deda1f9",
+    "title": "Man accused of plotting 20 Iran-linked terror attacks in Europe and Canada appears in court",
+    "url": "https://news.sky.com/story/man-accused-of-plotting-20-iran-linked-terror-attacks-in-europe-and-canada-appears-in-court-13549988",
+    "source": "Sky News (Home)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Crime",
+      "World"
+    ],
+    "addedAt": "2026-06-02T14:52:54.870Z"
+  },
+  {
+    "id": "dba7a1bc5c59",
+    "title": "Britain was told to rearm. A year later, there's no sign of the cash",
+    "url": "https://news.sky.com/story/uk-firms-suffering-financially-as-government-drags-heels-on-defence-investment-plan-13549960",
+    "source": "Sky News (Politics)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:55.232Z"
+  },
+  {
+    "id": "45379b17cbbb",
+    "title": "Video games, a motorhome and a &#163;3,200 coffee machine: How ex-SNP chief splashed out with embezzled cash",
+    "url": "https://news.sky.com/story/operation-branchform-timeline-the-downfall-of-ex-snp-chief-executive-peter-murrell-13546737",
+    "source": "Sky News (Politics)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:55.232Z"
+  },
+  {
+    "id": "32b8baf60f5a",
+    "title": "Life after Keir - will any Labour leadership race be a coronation or contest?",
+    "url": "https://news.sky.com/story/life-after-keir-will-any-labour-leadership-race-be-a-coronation-or-contest-13549814",
+    "source": "Sky News (Politics)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Politics"
+    ],
+    "addedAt": "2026-06-02T14:52:55.233Z"
+  },
+  {
+    "id": "ad1194f1568f",
+    "title": "US, UK and Australia to develop underwater drones through defence pact",
+    "url": "https://news.sky.com/story/aukus-nations-to-develop-underwater-drones-through-defence-pact-13549241",
+    "source": "Sky News (Politics)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:55.233Z"
+  },
+  {
+    "id": "632274070f57",
+    "title": "Two US left-wing broadcasters blocked from entering UK",
+    "url": "https://news.sky.com/story/two-us-left-wing-broadcasters-blocked-from-entering-the-uk-by-home-office-13549800",
+    "source": "Sky News (Politics)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Transport"
+    ],
+    "addedAt": "2026-06-02T14:52:55.233Z"
+  },
+  {
+    "id": "b4f901bcaed7",
+    "title": "Burnham allies plan cross-party council to stop a Reform UK government",
+    "url": "https://news.sky.com/story/burnham-allies-plan-cross-party-council-to-stop-a-reform-uk-government-13549122",
+    "source": "Sky News (Politics)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Politics"
+    ],
+    "addedAt": "2026-06-02T14:52:55.233Z"
+  },
+  {
+    "id": "0fe6b68df8a8",
+    "title": "Plan unveiled to tackle 'totally unacceptable' behaviour by airline passengers",
+    "url": "https://news.sky.com/story/disruptive-passengers-could-be-banned-from-all-flights-under-uk-government-plan-13549760",
+    "source": "Sky News (Politics)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:55.233Z"
+  },
+  {
+    "id": "eb621e53aef6",
+    "title": "<a href='https://news.sky.com/story/politics-latest-tories-criticise-delay-in-publishing-defence-funding-plan-12593360?postid=11777167#liveblog-body'>AI to be used to check age of asylum seekers posing as children</a>",
+    "url": "https://news.sky.com/story/ai-to-be-used-to-check-age-of-asylum-seekers-posing-as-children-13549029",
+    "source": "Sky News (Politics)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Politics",
+      "Immigration"
+    ],
+    "addedAt": "2026-06-02T14:52:55.233Z"
+  },
+  {
+    "id": "03b2375c3982",
+    "title": "Why the UK isn't ungovernable - yet",
+    "url": "https://news.sky.com/story/why-the-uk-isnt-ungovernable-yet-13548778",
+    "source": "Sky News (Politics)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:55.233Z"
+  },
+  {
+    "id": "04e181ba36b3",
+    "title": "Lee Andrews LIVE: Katie Price flashes engagement ring as she 'flies out to Dubai' to be reunited with husband",
+    "url": "https://www.mirror.co.uk/3am/celebrity-news/live-katie-price-lee-andrews-37232021",
+    "source": "Daily Mirror (UK)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Weather"
+    ],
+    "addedAt": "2026-06-02T14:52:55.584Z"
+  },
+  {
+    "id": "144df19479d6",
+    "title": "Sheffield fire live: City centre filled with smoke as 999 crews warn 'stay away'",
+    "url": "https://www.mirror.co.uk/news/uk-news/sheffield-fire-live-city-centre-37237285",
+    "source": "Daily Mirror (UK)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:55.584Z"
+  },
+  {
+    "id": "711c68b9c778",
+    "title": "New probe into Bristol explosion after mum saved child before ex 'detonated device'",
+    "url": "https://www.mirror.co.uk/news/uk-news/bristol-explosion-police-watchdog-probe-37237888",
+    "source": "Daily Mirror (UK)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Weather"
+    ],
+    "addedAt": "2026-06-02T14:52:55.584Z"
+  },
+  {
+    "id": "8b7e7cfe52c7",
+    "title": "Iran war live: Trump in sweary call to Netanyahu as he says 'everyone hates you'",
+    "url": "https://www.mirror.co.uk/news/world-news/iran-war-trump-netanyahu-live-37227616",
+    "source": "Daily Mirror (UK)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Politics",
+      "World"
+    ],
+    "addedAt": "2026-06-02T14:52:55.584Z"
+  },
+  {
+    "id": "8aba376e63a6",
+    "title": "'I went to Green Party-themed rave where Zack Polanski got on stage - and asked partygoers about drugs'",
+    "url": "https://www.mirror.co.uk/news/uk-news/green-party-rave-zack-polanski-37235586",
+    "source": "Daily Mirror (UK)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:55.584Z"
+  },
+  {
+    "id": "5b01d768a01b",
+    "title": "Sister Sledge star, 67, making huge comeback after 'fighting for right to sing'",
+    "url": "https://www.mirror.co.uk/3am/celebrity-news/sister-sledge-we-are-family-37233796",
+    "source": "Daily Mirror (UK)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:55.584Z"
+  },
+  {
+    "id": "f9f3ecb8d418",
+    "title": "St Austell park on lockdown after 'serious sexual assault on man' as cops swarm",
+    "url": "https://www.mirror.co.uk/news/uk-news/st-austell-park-live-police-37236198",
+    "source": "Daily Mirror (UK)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Crime"
+    ],
+    "addedAt": "2026-06-02T14:52:55.584Z"
+  },
+  {
+    "id": "e93c810efe41",
+    "title": "Sir Kenny Dalglish gets Liverpool icons' support as messages flood in after his cancer diagnosis",
+    "url": "https://www.mirror.co.uk/sport/football/news/kenny-dalglish-cancer-liverpool-support-37237689",
+    "source": "Daily Mirror (UK)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "NHS/Health",
+      "Weather"
+    ],
+    "addedAt": "2026-06-02T14:52:55.585Z"
+  },
+  {
+    "id": "190067f0112c",
+    "title": "London tube strikes live: Full list of affected lines as RMT hits back over criticism",
+    "url": "https://www.mirror.co.uk/news/uk-news/tube-strikes-live-london-underground-37234800",
+    "source": "Daily Mirror (UK)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Transport"
+    ],
+    "addedAt": "2026-06-02T14:52:55.585Z"
+  },
+  {
+    "id": "8f7c30f16ff7",
+    "title": "Met Office thunderstorm warning as 9 areas told ‘prepare emergency kit’ – list",
+    "url": "https://www.mirror.co.uk/news/uk-news/met-office-weather-warning-thunderstorms-37237762",
+    "source": "Daily Mirror (UK)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Weather"
+    ],
+    "addedAt": "2026-06-02T14:52:55.585Z"
+  },
+  {
+    "id": "fabae4c7ea74",
+    "title": "Henry Nowak’s killer in court with dad and brother on weapons charges",
+    "url": "https://metro.co.uk/2026/06/02/henry-nowak-killer-vickrum-digwa-court-relatives-weapons-charges-28619602/",
+    "source": "Metro (UK)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Crime"
+    ],
+    "addedAt": "2026-06-02T14:52:57.018Z"
+  },
+  {
+    "id": "38f6b93933a5",
+    "title": "London borough bans Lime e-bikes in favour of rival operator",
+    "url": "https://metro.co.uk/2026/06/02/london-borough-bans-lime-e-bikes-favour-rival-operator-28619693/",
+    "source": "Metro (UK)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:57.018Z"
+  },
+  {
+    "id": "a51a73e50e90",
+    "title": "London and southern England rocked by violent thunderstorms, hail and wind",
+    "url": "https://metro.co.uk/2026/06/02/violent-thunder-storms-sweep-across-london-rock-southern-england-28619042/",
+    "source": "Metro (UK)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Weather"
+    ],
+    "addedAt": "2026-06-02T14:52:57.018Z"
+  },
+  {
+    "id": "173f74951570",
+    "title": "Policeman ‘receives death threats’ after being wrongly identified as Henry Nowak officer",
+    "url": "https://metro.co.uk/2026/06/02/policeman-gets-death-threats-wrongly-named-henry-nowak-officer-28618683/",
+    "source": "Metro (UK)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Crime",
+      "Weather"
+    ],
+    "addedAt": "2026-06-02T14:52:57.018Z"
+  },
+  {
+    "id": "08c755c4726d",
+    "title": "Full list of Morrisons Daily stores shutting ahead of 100 planned closures this year",
+    "url": "https://metro.co.uk/2026/06/02/full-list-morrisons-daily-stores-shutting-ahead-100-closures-28618165/",
+    "source": "Metro (UK)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:57.018Z"
+  },
+  {
+    "id": "7dd3776032d6",
+    "title": "The UK estate terrorised by ‘Lord of the Flies’ kids armed with golf clubs",
+    "url": "https://metro.co.uk/2026/06/02/uk-estate-terrorised-lord-flies-kids-armed-golf-clubs-28614630/",
+    "source": "Metro (UK)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:57.018Z"
+  },
+  {
+    "id": "0428d84935ed",
+    "title": "Starmer uses vanishing WhatsApp messages, No 10 confirms after Mandelson release",
+    "url": "https://metro.co.uk/2026/06/02/starmer-uses-vanishing-whatsapp-messages-no-10-confirms-mandelson-release-28617928/",
+    "source": "Metro (UK)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Politics"
+    ],
+    "addedAt": "2026-06-02T14:52:57.018Z"
+  },
+  {
+    "id": "5a4f9943505c",
+    "title": "MoD logs 45 security breaches a day as ‘terror-target’ devices and IDs go missing",
+    "url": "https://metro.co.uk/2026/06/02/mod-logs-45-suspected-security-breaches-daily-600-assets-attractive-terrorists-lost-28614982/",
+    "source": "Metro (UK)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Weather"
+    ],
+    "addedAt": "2026-06-02T14:52:57.018Z"
+  },
+  {
+    "id": "fcef891b0970",
+    "title": "Family pays tribute to girl, 16, after body pulled from river at country park",
+    "url": "https://metro.co.uk/2026/06/02/family-pays-tribute-girl-16-body-pulled-river-country-park-28615626/",
+    "source": "Metro (UK)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:57.018Z"
+  },
+  {
+    "id": "33b2c34c4257",
+    "title": "‘Scruffy’ houseboat owners refuse to leave Bath beauty spot after eviction threat",
+    "url": "https://metro.co.uk/2026/06/02/scruffy-houseboat-owners-refuse-leave-bath-beauty-spot-eviction-threat-28615203/",
+    "source": "Metro (UK)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:57.018Z"
+  },
+  {
+    "id": "bec0ee7ef99e",
+    "title": "Torvill and Dean among 68 to be honoured by King Charles at Windsor Castle",
+    "url": "https://www.standard.co.uk/news/uk/idris-elba-torvill-dean-honours-king-b1284543.html",
+    "source": "Evening Standard (UK)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Royals"
+    ],
+    "addedAt": "2026-06-02T14:52:57.204Z"
+  },
+  {
+    "id": "71e3948628dd",
+    "title": "Police watchdog launches investigation into explosion deaths",
+    "url": "https://www.standard.co.uk/news/uk/bristol-iopc-avon-and-somerset-police-emergency-services-b1284537.html",
+    "source": "Evening Standard (UK)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Crime",
+      "Weather"
+    ],
+    "addedAt": "2026-06-02T14:52:57.204Z"
+  },
+  {
+    "id": "696197f24b18",
+    "title": "Former care worker jailed for sexually assaulting vulnerable women",
+    "url": "https://www.standard.co.uk/news/uk/high-court-edinburgh-police-scotland-b1284531.html",
+    "source": "Evening Standard (UK)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "NHS/Health",
+      "Crime"
+    ],
+    "addedAt": "2026-06-02T14:52:57.204Z"
+  },
+  {
+    "id": "5937ce23a4f7",
+    "title": "Jeffrey Donaldson trial hears interview with complainant about alleged rape",
+    "url": "https://www.standard.co.uk/news/uk/dup-press-association-stormont-b1284523.html",
+    "source": "Evening Standard (UK)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Crime"
+    ],
+    "addedAt": "2026-06-02T14:52:57.204Z"
+  },
+  {
+    "id": "d425a2f9cd5c",
+    "title": "Sir Kenny Dalglish undergoing treatment for cancer",
+    "url": "https://www.standard.co.uk/sport/football/sir-kenny-dalglish-cancer-liverpool-fc-b1284516.html",
+    "source": "Evening Standard (UK)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "NHS/Health"
+    ],
+    "addedAt": "2026-06-02T14:52:57.204Z"
+  },
+  {
+    "id": "a3e372491332",
+    "title": "'I can't breathe': Horrifying moment Henry Nowak begs for help after being stabbed and wrongly arrested over racism claim",
+    "url": "https://www.standard.co.uk/news/crime/henry-nowak-arrest-video-murder-vickram-digwa-b1284504.html",
+    "source": "Evening Standard (UK)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Crime"
+    ],
+    "addedAt": "2026-06-02T14:52:57.204Z"
+  },
+  {
+    "id": "3f357d27ec49",
+    "title": "Kensington Palace confirms Kate will attend cancer charity reception in London",
+    "url": "https://www.standard.co.uk/news/uk/king-charles-kate-middleton-cancer-research-b1284483.html",
+    "source": "Evening Standard (UK)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "NHS/Health",
+      "Royals"
+    ],
+    "addedAt": "2026-06-02T14:52:57.204Z"
+  },
+  {
+    "id": "73d2227608b9",
+    "title": "Kate to join King and Queen at cancer charity reception",
+    "url": "https://www.standard.co.uk/news/uk/charles-cancer-research-uk-princess-of-wales-king-b1284482.html",
+    "source": "Evening Standard (UK)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "NHS/Health"
+    ],
+    "addedAt": "2026-06-02T14:52:57.204Z"
+  },
+  {
+    "id": "dce158f17064",
+    "title": "Jeffrey Donaldson sexual offences trial to hear from second alleged victim",
+    "url": "https://www.standard.co.uk/news/uk/dup-press-association-b1284466.html",
+    "source": "Evening Standard (UK)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Crime"
+    ],
+    "addedAt": "2026-06-02T14:52:57.204Z"
+  },
+  {
+    "id": "6f11e80c2664",
+    "title": "Body found during river search for missing 11-year-old boy",
+    "url": "https://www.standard.co.uk/news/uk/mackenzie-swift-river-don-search-update-b1284451.html",
+    "source": "Evening Standard (UK)",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:57.204Z"
+  },
+  {
+    "id": "922c3ac01039",
+    "title": "US 'anti-woke' influencer Melissa Rein Lively admits assaulting woman at Tube station",
+    "url": "https://www.express.co.uk/news/uk/2212546/us-influencer-melissa-rein-lively-tube-station",
+    "source": "Daily Express",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Crime",
+      "Transport"
+    ],
+    "addedAt": "2026-06-02T14:52:57.559Z"
+  },
+  {
+    "id": "f112aba6fac4",
+    "title": "Henry Nowak's death is worst two-tier policing by anti-white force UK has ever seen",
+    "url": "https://www.express.co.uk/news/uk/2212524/henry-nowaks-death-worst-two-tier",
+    "source": "Daily Express",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:57.559Z"
+  },
+  {
+    "id": "14e8e9e441e4",
+    "title": "Police officer forced into hiding as fake rumours spread after Henry Nowak murder",
+    "url": "https://www.express.co.uk/news/politics/2212520/henry-nowak-murder-police-officer-misidentified",
+    "source": "Daily Express",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Crime",
+      "Weather"
+    ],
+    "addedAt": "2026-06-02T14:52:57.559Z"
+  },
+  {
+    "id": "6f22889d68ec",
+    "title": "Rachel Reeves blamed as Morrisons confirms closure of 100 stores",
+    "url": "https://www.express.co.uk/news/uk/2212519/rachel-reeves-blamed-morrisons-closures",
+    "source": "Daily Express",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:57.559Z"
+  },
+  {
+    "id": "d5357deb31f6",
+    "title": "Sheffield fire LIVE: Blaze erupts in city centre as thick smoke seen for miles",
+    "url": "https://www.express.co.uk/news/uk/2212511/sheffield-fire-live-garden-street-emergency",
+    "source": "Daily Express",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:57.559Z"
+  },
+  {
+    "id": "b898f2895ff3",
+    "title": "Peter Kay 'bomb hoax' accused removed from court hearing after he started undressing",
+    "url": "https://www.express.co.uk/news/uk/2212505/peter-kay-show-alleged-bomb-hoax-teenager",
+    "source": "Daily Express",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Crime"
+    ],
+    "addedAt": "2026-06-02T14:52:57.559Z"
+  },
+  {
+    "id": "6b1a50400651",
+    "title": "Morrisons store in beautiful UK city fighting to stay open",
+    "url": "https://www.express.co.uk/news/uk/2212501/morrisons-store-beautiful-uk-city",
+    "source": "Daily Express",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:57.559Z"
+  },
+  {
+    "id": "dc2aa573d797",
+    "title": "Historic UK school built in 1895 to be transformed into 24 flats",
+    "url": "https://www.express.co.uk/news/uk/2212490/uk-school-1895-transformed-24-flats",
+    "source": "Daily Express",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Education"
+    ],
+    "addedAt": "2026-06-02T14:52:57.559Z"
+  },
+  {
+    "id": "94029d5afaf8",
+    "title": "Incredible new UK viaduct slid into place - 4,200 tons of concrete",
+    "url": "https://www.express.co.uk/news/uk/2212475/incredible-new-uk-viaduct-slid-lichfield-birmingham",
+    "source": "Daily Express",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:57.559Z"
+  },
+  {
+    "id": "db6068db9d04",
+    "title": "UK bathroom firm plunges into administration – in business since 1992",
+    "url": "https://www.express.co.uk/news/uk/2212472/uk-bathroom-firm-plunges-administration-1992",
+    "source": "Daily Express",
+    "region": "EU",
+    "priority": "p2",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:57.559Z"
+  },
+  {
+    "id": "70bbc6c1b844",
+    "title": "Police to be investigated over fatal explosion",
+    "url": "https://www.bbc.com/news/articles/c93xzezzpxgo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC England",
+    "region": "EU",
+    "priority": "p3",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Crime",
+      "Weather"
+    ],
+    "addedAt": "2026-06-02T14:52:57.794Z"
+  },
+  {
+    "id": "d00af46d399b",
+    "title": "Tributes as 'little warrior' boy, 11, dies months after house fire",
+    "url": "https://www.bbc.com/news/articles/clyplprjdqyo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC England",
+    "region": "EU",
+    "priority": "p3",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:57.794Z"
+  },
+  {
+    "id": "9216b378dc75",
+    "title": "Sacked BBC journalist loses employment tribunal",
+    "url": "https://www.bbc.com/news/articles/ce3p6p7eeylo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC England",
+    "region": "EU",
+    "priority": "p3",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:57.794Z"
+  },
+  {
+    "id": "4261e57fd108",
+    "title": "Mum's shock after son, 9, found alone on busy road",
+    "url": "https://www.bbc.com/news/articles/c1l23p0vvj8o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC England",
+    "region": "EU",
+    "priority": "p3",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Transport"
+    ],
+    "addedAt": "2026-06-02T14:52:57.794Z"
+  },
+  {
+    "id": "e24d251553ef",
+    "title": "'It's just you and a syringe full of risk', says medicines watchdog",
+    "url": "https://www.bbc.com/news/articles/c9dneydj3ewo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC England",
+    "region": "EU",
+    "priority": "p3",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:57.794Z"
+  },
+  {
+    "id": "04f59d8b86ea",
+    "title": "'Utterly vile' abuse drives councillor to quit",
+    "url": "https://www.bbc.com/news/articles/cdxpw5ykv7qo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC England",
+    "region": "EU",
+    "priority": "p3",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:57.794Z"
+  },
+  {
+    "id": "c8913c19abb3",
+    "title": "Retiring after 50 years of pottery and wrestling",
+    "url": "https://www.bbc.com/news/articles/c2d26en2n08o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC England",
+    "region": "EU",
+    "priority": "p3",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:57.794Z"
+  },
+  {
+    "id": "3b48c47b2f84",
+    "title": "How former SNP chief executive Peter Murrell spent the £400,000 he embezzled",
+    "url": "https://www.bbc.com/news/articles/c5yenx535keo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Scotland",
+    "region": "EU",
+    "priority": "p3",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:58.277Z"
+  },
+  {
+    "id": "ae281812bfd5",
+    "title": "In pictures: Motorhome and wine coaster among items embezzled by Murrell",
+    "url": "https://www.bbc.com/news/articles/c2023jde45xo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Scotland",
+    "region": "EU",
+    "priority": "p3",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:58.277Z"
+  },
+  {
+    "id": "090fa838f504",
+    "title": "What we now know about how Peter Murrell hid his embezzlement",
+    "url": "https://www.bbc.com/news/articles/cwy2rmkjy1vo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Scotland",
+    "region": "EU",
+    "priority": "p3",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:58.277Z"
+  },
+  {
+    "id": "fe89e0294ecf",
+    "title": "Rapist care worker who abused vulnerable women is jailed",
+    "url": "https://www.bbc.com/news/articles/cm2p6g3658do?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Scotland",
+    "region": "EU",
+    "priority": "p3",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "NHS/Health",
+      "Crime"
+    ],
+    "addedAt": "2026-06-02T14:52:58.277Z"
+  },
+  {
+    "id": "599b74f54cdf",
+    "title": "Record high number of children refused mental health help",
+    "url": "https://www.bbc.com/news/articles/cj6pg6z6778o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Scotland",
+    "region": "EU",
+    "priority": "p3",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "NHS/Health"
+    ],
+    "addedAt": "2026-06-02T14:52:58.277Z"
+  },
+  {
+    "id": "a349fc8b40a0",
+    "title": "Highland spaceport company to be liquidated",
+    "url": "https://www.bbc.com/news/articles/cn8pwn6y3ywo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Scotland",
+    "region": "EU",
+    "priority": "p3",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:58.277Z"
+  },
+  {
+    "id": "cd9c454af915",
+    "title": "NC500 brings millions to economy but also challenges, says report",
+    "url": "https://www.bbc.com/news/articles/cjdpmgnzzrdo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Scotland",
+    "region": "EU",
+    "priority": "p3",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Economy"
+    ],
+    "addedAt": "2026-06-02T14:52:58.277Z"
+  },
+  {
+    "id": "5ae0c60151d2",
+    "title": "Six more arrests made over Rangers v Celtic fan disorder",
+    "url": "https://www.bbc.com/news/articles/cpvpggylxgno?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Scotland",
+    "region": "EU",
+    "priority": "p3",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Crime"
+    ],
+    "addedAt": "2026-06-02T14:52:58.277Z"
+  },
+  {
+    "id": "33901d8019f2",
+    "title": "Tata Steel staff steal £1.2m of tin from work and sell it for scrap",
+    "url": "https://www.bbc.com/news/articles/cz928z5e5pxo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Wales",
+    "region": "EU",
+    "priority": "p3",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:58.306Z"
+  },
+  {
+    "id": "f2d0219b1459",
+    "title": "Twin Peaks actor dies suddenly at 44",
+    "url": "https://www.bbc.com/news/articles/c4g41djl32xo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Wales",
+    "region": "EU",
+    "priority": "p3",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:58.306Z"
+  },
+  {
+    "id": "4dffdf0f0778",
+    "title": "Cave markings dismissed for years confirmed as Britain's oldest prehistoric art",
+    "url": "https://www.bbc.com/news/articles/c232dmk0xxdo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Wales",
+    "region": "EU",
+    "priority": "p3",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:58.306Z"
+  },
+  {
+    "id": "994c06a2e075",
+    "title": "Venezuela Fury's wedding hairdresser says family were 'absolutely lovely'",
+    "url": "https://www.bbc.com/news/articles/cj4p794q2gwo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Wales",
+    "region": "EU",
+    "priority": "p3",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:58.306Z"
+  },
+  {
+    "id": "5fc430204c71",
+    "title": "Rail company accused of disrupting Wales-England train links by government",
+    "url": "https://www.bbc.com/news/articles/c794pdy1jgjo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Wales",
+    "region": "EU",
+    "priority": "p3",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Weather",
+      "Transport"
+    ],
+    "addedAt": "2026-06-02T14:52:58.306Z"
+  },
+  {
+    "id": "a26a3628f243",
+    "title": "Paralympian could become first astronaut with disability to live and work in space",
+    "url": "https://www.bbc.com/news/articles/cx21815x182o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Wales",
+    "region": "EU",
+    "priority": "p3",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:58.306Z"
+  },
+  {
+    "id": "9714eb8ee99d",
+    "title": "Rapid rise in remote students but Open University warns of funding risk",
+    "url": "https://www.bbc.com/news/articles/c62deqrdv1jo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Wales",
+    "region": "EU",
+    "priority": "p3",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Education"
+    ],
+    "addedAt": "2026-06-02T14:52:58.306Z"
+  },
+  {
+    "id": "d8d09aef76df",
+    "title": "Facebook whistle-blower sits in silence in panel discussion about her tell-all book",
+    "url": "https://www.bbc.com/news/articles/cy42xgeq9vpo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Wales",
+    "region": "EU",
+    "priority": "p3",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:58.306Z"
+  },
+  {
+    "id": "99c80daa97b9",
+    "title": "Athlete forced to travel 800 miles for meeting that boss didn't show up for wins £149,000",
+    "url": "https://www.bbc.com/news/articles/clyp0qz0d14o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Wales",
+    "region": "EU",
+    "priority": "p3",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:58.306Z"
+  },
+  {
+    "id": "f24015f39400",
+    "title": "Brothers were racing before fatal crash, jury told",
+    "url": "https://www.bbc.com/news/articles/cwy24nyvyj2o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Wales",
+    "region": "EU",
+    "priority": "p3",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:58.306Z"
+  },
+  {
+    "id": "6910c477fa22",
+    "title": "Donaldson rape accuser says he apologised to her years later at a Christian centre",
+    "url": "https://www.bbc.com/news/articles/ce3px70ngl1o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Northern Ireland",
+    "region": "EU",
+    "priority": "p3",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:58.927Z"
+  },
+  {
+    "id": "c5e957b5d20c",
+    "title": "'A heel prick test might have saved our seven-year-old son's life'",
+    "url": "https://www.bbc.com/news/articles/c1426nrj16go?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Northern Ireland",
+    "region": "EU",
+    "priority": "p3",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:58.927Z"
+  },
+  {
+    "id": "0dd9d81f0b23",
+    "title": "Severely disabled people can now consent to care arrangements, Supreme Court rules",
+    "url": "https://www.bbc.com/news/articles/c3e2lq58p87o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Northern Ireland",
+    "region": "EU",
+    "priority": "p3",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "NHS/Health",
+      "Crime"
+    ],
+    "addedAt": "2026-06-02T14:52:58.927Z"
+  },
+  {
+    "id": "e67fc575273a",
+    "title": "PSNI 'concerned' as fraudster used its number in scam attempt",
+    "url": "https://www.bbc.com/news/articles/cqlpnpx4npro?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Northern Ireland",
+    "region": "EU",
+    "priority": "p3",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Crime"
+    ],
+    "addedAt": "2026-06-02T14:52:58.927Z"
+  },
+  {
+    "id": "b1b3d03c9d82",
+    "title": "Man given life sentence for murdering his mother",
+    "url": "https://www.bbc.com/news/articles/cy72lz8730po?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Northern Ireland",
+    "region": "EU",
+    "priority": "p3",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Crime"
+    ],
+    "addedAt": "2026-06-02T14:52:58.927Z"
+  },
+  {
+    "id": "dafe2944d1cb",
+    "title": "Should an apartment block be built near a 12th Century castle?",
+    "url": "https://www.bbc.com/news/articles/c5y0zqj3nvko?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Northern Ireland",
+    "region": "EU",
+    "priority": "p3",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:58.927Z"
+  },
+  {
+    "id": "ae0aaff0ae60",
+    "title": "Multi-million pound takeover of NI firm could create hundreds of jobs",
+    "url": "https://www.bbc.com/news/articles/cwy2q23gp39o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Northern Ireland",
+    "region": "EU",
+    "priority": "p3",
+    "featured": false,
+    "flash": false,
+    "keywords": [
+      "Economy"
+    ],
+    "addedAt": "2026-06-02T14:52:58.927Z"
+  },
+  {
+    "id": "4584c6f11850",
+    "title": "Beattie was aggressive at meeting, Ulster Unionist group says",
+    "url": "https://www.bbc.com/news/articles/clyp0zjl8l1o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Northern Ireland",
+    "region": "EU",
+    "priority": "p3",
+    "featured": false,
+    "flash": false,
+    "keywords": [],
+    "addedAt": "2026-06-02T14:52:58.927Z"
+  }
 ]
