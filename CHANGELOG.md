@@ -12,9 +12,10 @@ uses [Semantic Versioning](https://semver.org/).
   Node 20 deprecation warning ahead of the 2026-06-16 runner change.
 
 ### Added
-- Design doc: `docs/design/admin-console-and-hosting.md` — scopes a local
-  GitHub-pushing admin console and production hosting options (Cloudflare Pages +
-  custom domain).
+- Design doc: `docs/design/admin-console-and-hosting.md` — scopes a two-plane
+  architecture (separate content repo keeps the curator out of source; link
+  approval never commits to source), a local admin console, and production hosting
+  options (Cloudflare Pages + custom domain).
 - **Decoupled production pipeline** (GitHub Actions + Pages):
   - `scripts/parse.mjs` — scheduled parser fetches UK feeds server-side (no CORS
     proxy), adds new headlines to `data/approved.json`, opens a review PR.

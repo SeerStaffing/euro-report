@@ -2,196 +2,176 @@
 
 - **Status:** Draft / for discussion
 - **Date:** 2026-06-02
-- **Scope:** Two related-but-independent proposals — (1) a local admin console
-  that edits content and pushes to GitHub, and (2) hosting for a production,
-  publicly-accessible site.
+- **Scope:** A two-plane architecture that keeps the content curator out of the
+  source code, plus a local admin console and production hosting options.
 
 ---
 
 ## 1. Context
 
-Today Euro Report runs as a decoupled pipeline:
+Today Euro Report runs as a decoupled pipeline where **approval = merging the
+parser's PR into `main`**. That has two governance problems:
 
-```
-parser (Action, cron) ──▶ review PR ──▶ merge = approval ──▶ publish (Action) ──▶ GitHub Pages
-```
+- It puts the curator **inside the source repo**.
+- It creates a **source commit per link approval**.
 
-- The **public page** is fully static (`dist/index.html`), inlines approved data,
-  and makes zero runtime API calls.
-- **Approval** currently happens by reviewing/merging the parser's PR.
-- The legacy `euro-report.html` (in-browser admin + `localStorage`) is retained
-  for local use but is not deployed.
+Both are undesirable. The guiding principle going forward:
 
-Two open desires:
-- A nicer **admin console** than editing PR diffs — ideally local, pushing edits
-  to GitHub "after the fact."
-- Clarity on what a **production, public** deployment looks like for hosting.
-
-These are orthogonal: the console governs *who writes content*; hosting governs
-*where it's served*. They compose without conflict.
+> **Link/content approval must not touch or commit to source code. Source code
+> changes (everything non-content) are approval-based, with documented commits.**
 
 ---
 
 ## 2. Goals / Non-goals
 
 **Goals**
-- Keep the public site fully static, no end-user-visible API calls.
-- Keep recurring cost at/near $0.
-- Preserve a human approval gate.
-- Avoid standing servers where possible.
+- Curator can approve links **without any access to source code** and **without
+  source commits**.
+- Source code changes remain PR-governed with documented commits.
+- Public site stays fully static, no end-user-visible API calls.
+- Cost stays at/near $0.
 
 **Non-goals (for now)**
-- Multi-admin accounts / role management.
-- Per-visitor personalization, comments, or accounts.
-- Full-text article storage (headlines + links only — see §5.1).
+- Multi-admin roles, per-visitor personalization, comments/accounts.
+- Full-text article storage (headlines + links only — see §6.1).
 
 ---
 
-## 3. Part 1 — Local admin console (pushes to GitHub)
+## 3. Two-plane architecture
 
-### 3.1 Key enabler
-GitHub's REST API is **CORS-enabled**, so a static HTML page (including
-`file://`) can read and write repo files directly with a token — no server,
-no proxy. This makes the console essentially the existing `euro-report.html`
-admin UI with its `localStorage` backend swapped for the GitHub Contents API.
+Split the system into two repositories with distinct ownership.
 
-### 3.2 Architecture
-
-```
-data/pending.json   (parser writes candidates here, server-side cron)
-        │  read
-        ▼
-admin.html  (LOCAL, on the admin's machine)
-   - paste fine-grained PAT once → localStorage
-   - review / approve / reject / set priority,featured,keywords / reorder
-        │  write (Contents API commit)
-        ▼
-data/approved.json on GitHub ──▶ publish Action ──▶ site updates
-```
-
-### 3.3 Auth
-- **Fine-grained Personal Access Token (PAT)**, scoped to this repo only,
-  `Contents: read/write`. Pasted once, stored in `localStorage`, never committed,
-  revocable anytime.
-- Alternative considered: GitHub OAuth **device flow** (no PAT to manage) — but
-  it requires a small token-exchange backend (the client secret can't live in a
-  static page), which breaks the "no infra" property. **Rejected** for a single
-  trusted admin; PAT is the pragmatic choice.
-
-### 3.4 Data flow / write-back options
-The console reads `pending.json` + `approved.json`, lets the admin curate, then
-commits the updated `approved.json` (and trimmed `pending.json`). The commit
-triggers the existing publish workflow.
-
-| Option | Pros | Cons |
+| | **Source / code plane** | **Content / data plane** |
 |---|---|---|
-| **A. Direct commit to `main`** | one click, fast | bypasses branch+PR rule (acceptable for *content*, not *code*) |
-| **B. Commit to branch + auto-PR** | full audit trail | extra merge step |
+| Repo | `euro-report` (existing) | `euro-report-content` (new) |
+| Holds | template, `scripts/*.mjs`, workflows, `feeds.json`, `keywords.json`, docs | `approved.json`, `pending.json`, `seen.json` |
+| Who writes | developers, via **PR + documented commit** | curator, via the **local console**; parser bot for candidates |
+| Governance | branch + PR (CHANGE_CONTROL.md) | content commits isolated to this repo; never touches source |
+| Curator access | **none** | collaborator on this repo only |
 
-**Recommendation:** Option A, with a documented carve-out that **content/data
-edits (`data/*.json`) may commit directly to `main`**, while **code changes keep
-the branch+PR rule**. Parser fills `pending.json`; console promotes
-`pending → approved`. Clean separation, fast approvals, publish stays automatic.
+The **page template (`templates/index.html`), CSS, and layout are source code** —
+changed only via PR. Only the link/headline **data** is curator-managed.
 
-### 3.5 Engineering notes
-- Reuse the existing admin UI; add a small GitHub API client:
-  `getFile(path) → {content, sha}`, `putFile(path, content, sha, message)`.
-- Handle `409` (sha conflict) by refetching and re-applying.
-- `approved.json` is small (~150 items); no pagination concerns.
-- Rate limits are a non-issue for a single admin.
-
-### 3.6 Effort & risk
-- **Effort:** moderate — mostly reskinning the existing console + the API client.
-- **Infra:** none; stays $0.
-- **Risk:** the PAT is the soft spot — narrowly scoped + revocable, but it is a
-  credential to guard. Mitigation: fine-grained scope, short expiry, easy rotation.
+### 3.1 Permission boundary (the key control)
+- **Curator**: collaborator on `euro-report-content` **only**, with a
+  **fine-grained PAT scoped to that repo, `Contents: read/write`**. The token
+  physically cannot write to `euro-report`. This is what enforces "out of source."
+- **Developers**: write on `euro-report` via PRs; need not touch content repo.
+- **Automation bot**: a least-privilege **GitHub App** (or dedicated fine-grained
+  PAT) used by CI for the cross-repo steps in §5.
 
 ---
 
-## 4. Part 2 — Production hosting (public site)
+## 4. Part 1 — Local admin console
 
-The site is fully static, so it scales trivially behind a CDN — there is no
-server to load-test. "Production for any user" mostly means **custom domain +
-a host that scales and lets the repo go private**.
+A static `admin.html` the curator opens on their machine. GitHub's REST API is
+**CORS-enabled**, so a static page can read/write repo files directly with a
+token — no server, no proxy. It is essentially the existing `euro-report.html`
+console with its `localStorage` backend pointed at the **content repo**.
 
-### 4.1 Options
+```
+data/pending.json   (parser bot writes candidates → content repo)
+        │  read (GitHub API, curator PAT)
+        ▼
+admin.html  (LOCAL on curator's machine; PAT scoped to content repo ONLY)
+   - review / approve / reject / set priority,featured,keywords / reorder
+        │  write approved.json (commit to CONTENT repo — not source)
+        ▼
+euro-report-content ──▶ triggers publish (§5) ──▶ site updates
+```
+
+- **Auth:** fine-grained PAT (content repo only), pasted once, stored in
+  `localStorage`, never committed, revocable. OAuth device flow was considered but
+  needs a token-exchange backend (breaks "no infra") — rejected for a single curator.
+- **Write-back:** commits `approved.json` (and trims `pending.json`) to the content
+  repo via the Contents API. Handle `409` sha conflicts by refetching.
+- **Audit trail:** content commits live in the content repo's history — dated,
+  attributable approvals — while **source history stays free of approval churn**.
+- **Effort:** moderate; reuse the existing console UI + a small API client
+  (`getFile`, `putFile`). No infra; $0.
+
+---
+
+## 5. Wiring the two planes (cross-repo)
+
+The parser (code) lives in source; its **output** (candidates) goes to content.
+The build (code) lives in source; it **reads** content at deploy time. Two
+cross-repo links are needed:
+
+1. **Parser → content:** the scheduled parser Action runs in `euro-report`, then
+   writes `pending.json` + `seen.json` to `euro-report-content` using the
+   automation bot token. (Bot commits to the content repo are content-plane.)
+2. **Content change → publish:** when `approved.json` changes in the content repo,
+   the source repo's publish workflow builds `dist/` from the source template +
+   the content data, and deploys. No source commit occurs.
+
+### 5.1 Trigger options (open decision)
+| Option | How | Trade-off |
+|---|---|---|
+| **A. `repository_dispatch`** | content repo fires an event to source on push → publish runs immediately | needs a least-privilege token (GitHub App) with `actions: write` on source; lowest latency |
+| **B. Schedule** | source publish runs every ~15–30 min, fetches latest content, rebuilds | no cross-repo trigger auth; adds latency + idle runs |
+
+**Recommendation:** A via a **GitHub App** (least privilege, free), with B as a
+simple fallback for v1.
+
+### 5.2 Reads
+- If the content repo is **public**, the build fetches `approved.json` via raw URL
+  — no token needed.
+- If **private**, the build needs a read token (the bot). Decision is tied to repo
+  visibility (§7).
+
+---
+
+## 6. Part 2 — Production hosting (public site)
+
+The site is fully static, so it scales trivially behind a CDN — no server to
+load-test. "Production for any user" mostly means **custom domain + a host that
+scales and lets repos go private**.
 
 | Host | Cost | Private repo? | Notes |
 |---|---|---|---|
 | GitHub Pages (current) | $0 | needs Pro ($4/mo) | Integrated; soft limits ~100GB/mo, 1GB site |
 | **Cloudflare Pages** | $0 | ✅ free | Unlimited bandwidth, global edge, preview deploys, free privacy-friendly analytics |
-| Netlify / Vercel | $0 hobby | ✅ | Vercel commercial use → Pro; strong DX |
-| S3 + CloudFront / Azure SWA | pennies | ✅ | Most control, more setup; overkill here |
+| Netlify / Vercel | $0 hobby | ✅ | Vercel commercial → Pro; strong DX |
+| S3 + CloudFront / Azure SWA | pennies | ✅ | Most control, more setup; overkill |
 
-### 4.2 Recommendation
-**Cloudflare Pages + a custom domain.** It is the single move that:
-- keeps cost ~$0 at real traffic (unlimited bandwidth on free),
-- lets the repo **go private for free** (resolves the earlier deferred goal — no
-  Pro needed),
-- adds edge CDN + free Web Analytics (no cookies).
+**Recommendation: Cloudflare Pages + a custom domain** — ~$0 at real traffic, lets
+both repos go **private** for free, edge CDN + free analytics. Recurring cost is
+essentially **just the domain (~$12/yr)**.
 
-The publish workflow changes from "deploy to Pages" to "build + deploy to
-Cloudflare" (Cloudflare's GitHub integration, or `wrangler` in the Action).
-
-### 4.3 Cost
-- Recurring cost is essentially **just the domain (~$12/yr)**.
-- Everything else stays free unless dynamic features are added.
-
-### 4.4 Migration steps (Pages → Cloudflare Pages)
-1. Create a Cloudflare account + Pages project linked to the repo (or deploy via
-   `wrangler` from the existing Action).
-2. Point the build output (`dist/`) at the Pages project.
-3. Add the custom domain + DNS (CNAME), enable automatic HTTPS.
-4. (Optional) flip the GitHub repo to **private** — Cloudflare still deploys.
-5. Retire the GitHub Pages deploy job (or keep as a staging mirror).
-
-### 4.5 Production concerns (non-obvious)
-1. **Feed/content licensing** — public republishing at scale touches BBC/Guardian/
-   etc. RSS terms. Headlines + links + attribution is the safe zone; storing full
-   article text or heavy commercial use is not. Review before "real" product use.
-2. **Freshness vs caching** — CDNs cache aggressively; Pages/Cloudflare purge on
-   deploy, so content is only as fresh as the publish cadence (fine — content is
-   approval-gated anyway).
-3. **Public polish** — favicon, OG/meta tags, sitemap, analytics opt-in: the small
-   items separating "demo on github.io" from "product on a domain."
+### 6.1 Production concerns (non-obvious)
+1. **Feed/content licensing** — public republishing touches BBC/Guardian/etc. RSS
+   terms. Headlines + links + attribution is the safe zone; full article text or
+   heavy commercial use is not. Review before "real" product use.
+2. **Freshness vs caching** — CDNs purge on deploy, so content is as fresh as the
+   publish cadence (fine — approval-gated).
+3. **Public polish** — favicon, OG/meta tags, sitemap, analytics opt-in.
 
 ---
 
-## 5. Combined target architecture
+## 7. Open questions / decisions
 
-```
-parser (Action, cron) ──▶ data/pending.json
-                                  │
-                   local admin.html (PAT) curates + commits
-                                  │
-                          data/approved.json (main)
-                                  │
-                     publish Action: build dist/index.html
-                                  │
-                     deploy ──▶ Cloudflare Pages (custom domain, CDN)
-```
-
-- Repo can be **private**; site stays public via Cloudflare.
-- No standing servers; cost ≈ domain only.
-
----
-
-## 6. Open questions / decisions
-
-- [ ] Console write-back: confirm **Option A** (direct content commits to `main`)
-      vs **Option B** (branch + PR).
-- [ ] Reintroduce `data/pending.json` as the parser's target (so the console
-      promotes to `approved.json`), instead of the parser writing `approved.json`
-      directly?
-- [ ] Host: stay on GitHub Pages for now, or cut over to Cloudflare Pages?
+- [x] Content lives in a **separate content repo** (curator out of source).
+- [x] Template/layout = **source code** (PR-governed).
+- [ ] Cross-repo trigger: **`repository_dispatch` via GitHub App** (§5.1 A) vs
+      **schedule** (B)?
+- [ ] Parser stays an Action in the **source** repo writing to content (assumed) —
+      confirm.
+- [ ] Are `feeds.json` / `keywords.json` source (PR-governed) — assumed yes — or
+      should the curator manage feeds/topics too?
+- [ ] Host: stay on GitHub Pages, or cut over to Cloudflare Pages?
+- [ ] Repo visibility: keep public, or go private (drives §5.2 read auth)?
 - [ ] Custom domain: register one? which?
-- [ ] Repo visibility: keep public, or go private once Cloudflare is in place?
 
-## 7. Suggested rollout
+---
 
-1. **Phase 1 — console:** build `admin.html` (local, PAT, reads pending/approved,
-   commits approved). Lowest risk, no infra, immediate UX win.
-2. **Phase 2 — pending split:** parser writes `pending.json`; console promotes.
-3. **Phase 3 — hosting:** Cloudflare Pages + custom domain; optionally flip repo
+## 8. Suggested rollout
+
+1. **Phase 1 — content repo:** create `euro-report-content`, move
+   `approved.json` / `pending.json` / `seen.json` there; grant curator access to it
+   only. Repoint parser output + build input across repos (bot token / GitHub App).
+2. **Phase 2 — console:** build local `admin.html` (PAT scoped to content repo;
+   reads pending/approved, commits approved). Immediate curator UX win, no infra.
+3. **Phase 3 — hosting:** Cloudflare Pages + custom domain; optionally flip repos
    to private.
 4. **Phase 4 — polish:** analytics, meta tags, favicon, licensing review.
