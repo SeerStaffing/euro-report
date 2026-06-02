@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EURO REPORT</title>
+<style>
+  :root{
+    --ink:#000;
+    --link:#0000cc;
+    --visited:#551a8b;
+    --red:#cc0000;
+    --rule:#000;
+    --bg:#ffffff;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+    font-family:"Times New Roman",Times,Georgia,serif;}
+  a{color:var(--link);text-decoration:none;}
+  a:visited{color:var(--visited);}
+  a:hover{text-decoration:underline;}
+
+  /* ---------- Masthead ---------- */
+  .masthead{text-align:center;padding:10px 8px 4px;border-bottom:3px double var(--ink);}
+  .masthead h1{font-size:clamp(32px,7vw,64px);font-weight:bold;letter-spacing:1px;
+    margin:0;line-height:1;}
+  .masthead .tag{font-size:13px;font-style:italic;margin-top:2px;}
+  .datebar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;
+    gap:6px;font-size:12px;font-weight:bold;text-transform:uppercase;
+    padding:4px 10px;border-bottom:1px solid var(--ink);}
+  .datebar .filters button{font:inherit;font-size:11px;font-weight:bold;text-transform:uppercase;
+    background:#fff;border:1px solid #000;padding:2px 8px;margin-left:4px;cursor:pointer;}
+  .datebar .filters button.active{background:#000;color:#fff;}
+
+  /* ---------- Splash ---------- */
+  .splash{text-align:center;padding:14px 12px;border-bottom:1px solid var(--ink);}
+  .splash a{font-size:clamp(22px,4vw,38px);font-weight:bold;line-height:1.1;
+    text-transform:uppercase;color:var(--ink);}
+  .splash a:hover{color:var(--red);}
+  .splash .region{display:inline-block;font-size:12px;color:var(--red);font-style:italic;
+    text-transform:uppercase;margin-top:6px;}
+
+  /* ---------- Priority rows ---------- */
+  .rows{padding:0;}
+  .prow{display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;
+    padding:14px 16px;border-bottom:1px solid var(--ink);}
+  .prow:last-child{border-bottom:none;}
+  .prow.p1{background:#fafafa;}
+  .item{text-align:center;line-height:1.2;padding:4px 18px;position:relative;}
+  .prow .item + .item::before{content:"";position:absolute;left:0;top:12%;height:76%;
+    border-left:1px solid #bbb;}
+  .item a{font-weight:bold;text-transform:uppercase;}
+  .item.flash a{color:var(--red);}
+  .item .meta{display:block;font-size:10px;color:#666;font-style:italic;
+    text-transform:uppercase;margin-top:2px;}
+  /* size hierarchy driven by hidden priority */
+  .prow.p1 .item{font-size:clamp(18px,2.4vw,26px);}
+  .prow.p2 .item{font-size:clamp(15px,1.8vw,19px);}
+  .prow.p3 .item{font-size:13px;}
+  .empty{font-size:13px;font-style:italic;color:#777;text-align:center;padding:16px;}
+
+  @media(max-width:760px){
+    .item{padding:4px 10px;}
+    .prow .item + .item::before{display:none;}
+  }
+
+  /* ---------- Footer / admin toggle ---------- */
+  footer{border-top:3px double var(--ink);text-align:center;font-size:11px;
+    text-transform:uppercase;padding:10px;margin-top:10px;}
+  footer a{cursor:pointer;}
+
+  /* ---------- Admin panel ---------- */
+  #admin{display:none;position:fixed;inset:0;background:rgba(255,255,255,.98);
+    overflow:auto;z-index:50;font-family:Arial,Helvetica,sans-serif;}
+  #admin.open{display:block;}
+  .admin-wrap{max-width:980px;margin:0 auto;padding:18px;}
+  #admin h2{font-family:"Times New Roman",serif;border-bottom:2px solid #000;padding-bottom:6px;}
+  #admin h3{margin:22px 0 8px;font-size:15px;text-transform:uppercase;letter-spacing:.5px;}
+  .admin-close{float:right;font-size:13px;border:1px solid #000;background:#fff;cursor:pointer;
+    padding:4px 10px;}
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .form-grid label{display:flex;flex-direction:column;font-size:12px;font-weight:bold;gap:3px;}
+  .form-grid input,.form-grid select{font:inherit;padding:6px;border:1px solid #999;}
+  .form-grid .full{grid-column:1/-1;}
+  .checkrow{display:flex;align-items:center;gap:6px;font-weight:bold;}
+  button.act{font:inherit;cursor:pointer;border:1px solid #000;background:#fff;padding:5px 12px;}
+  button.primary{background:#000;color:#fff;}
+  button.approve{border-color:#157a2b;color:#157a2b;}
+  button.reject,button.remove{border-color:#cc0000;color:#cc0000;}
+  table{width:100%;border-collapse:collapse;font-size:13px;margin-top:6px;}
+  th,td{border:1px solid #ccc;padding:6px 8px;text-align:left;vertical-align:top;}
+  th{background:#f0f0f0;text-transform:uppercase;font-size:11px;}
+  td .u{font-size:11px;color:#666;word-break:break-all;}
+  .pill{display:inline-block;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:8px;
+    background:#eee;text-transform:uppercase;}
+  .pill.EU{background:#dbeafe;color:#1e3a8a;}
+  .pill.US{background:#fee2e2;color:#7f1d1d;}
+  .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0;}
+  .note{font-size:12px;color:#555;}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <h1>EURO REPORT</h1>
+  <div class="tag">EU &amp; US HEADLINES &mdash; CURATED</div>
+</header>
+
+<div class="datebar">
+  <span id="dateLabel"></span>
+  <span class="filters">
+    REGION:
+    <button data-region="ALL" class="active">All</button>
+    <button data-region="EU">EU</button>
+    <button data-region="US">US</button>
+  </span>
+</div>
+
+<section class="splash" id="splash"></section>
+
+<main class="rows" id="rows"></main>
+
+<footer>
+  &copy; <span id="year"></span> EURO REPORT &nbsp;&middot;&nbsp;
+  <a id="adminOpen">Admin</a>
+</footer>
+
+<!-- ================= ADMIN ================= -->
+<div id="admin">
+  <div class="admin-wrap">
+    <button class="admin-close" id="adminClose">Close &times;</button>
+    <h2>Admin &mdash; Link Review</h2>
+    <p class="note">New links submitted via the form or the <code>EuroReportAPI</code> land in
+      <strong>Pending</strong>. They only appear on the public page after you
+      <strong>Approve</strong> them here. Data is stored in this browser (localStorage).</p>
+
+    <h3>Add a link</h3>
+    <form id="addForm" class="form-grid">
+      <label class="full">Headline
+        <input name="title" required maxlength="160" placeholder="HEADLINE TEXT...">
+      </label>
+      <label class="full">URL
+        <input name="url" type="url" required placeholder="https://...">
+      </label>
+      <label>Region
+        <select name="region"><option value="US">US</option><option value="EU">EU</option></select>
+      </label>
+      <label>Priority (hidden)
+        <select name="priority">
+          <option value="p1">P1 &mdash; top row</option>
+          <option value="p2" selected>P2 &mdash; middle</option>
+          <option value="p3">P3 &mdash; bottom</option>
+        </select>
+      </label>
+      <label class="checkrow full"><input type="checkbox" name="featured"> Featured (splash headline)</label>
+      <label class="checkrow"><input type="checkbox" name="flash"> Flash (red)</label>
+      <div class="full"><button class="act primary" type="submit">Submit to Pending</button></div>
+    </form>
+
+    <h3>UK news aggregator</h3>
+    <p class="note">Pulls live headlines from UK news feeds and drops them straight into
+      <strong>Pending</strong> for your approval. This fetch runs <em>only here in the admin
+      console</em> &mdash; the public page never makes the call, so end users see no API traffic
+      in Inspect. Duplicate URLs are skipped automatically.</p>
+    <div id="feedList"></div>
+    <div class="toolbar">
+      <label class="checkrow"><input type="checkbox" id="feedAll" checked> Select all</label>
+      <label style="font-size:12px;font-weight:bold;display:flex;align-items:center;gap:4px;">
+        Per feed
+        <select id="feedLimit" style="font:inherit;padding:3px;">
+          <option>5</option><option selected>8</option><option>12</option><option>20</option>
+        </select>
+      </label>
+      <button class="act primary" id="fetchBtn">Fetch UK headlines &rarr; Pending</button>
+    </div>
+    <p class="note" id="fetchStatus"></p>
+
+    <h3>Pending review (<span id="pendCount">0</span>)
+      <button class="act approve" id="approveAllBtn" style="float:right;font-size:12px;">Approve all</button>
+    </h3>
+    <table id="pendTable"><thead><tr><th>Headline</th><th>Region</th><th>Priority</th><th>Actions</th></tr></thead><tbody></tbody></table>
+
+    <h3>Approved &mdash; live (<span id="apprCount">0</span>)
+      <button class="act remove" id="removeAllBtn" style="float:right;font-size:12px;">Remove all</button>
+    </h3>
+    <table id="apprTable"><thead><tr><th>Headline</th><th>Region</th><th>Priority</th><th>Actions</th></tr></thead><tbody></tbody></table>
+
+    <h3>Data</h3>
+    <div class="toolbar">
+      <button class="act" id="exportBtn">Export JSON</button>
+      <button class="act" id="importBtn">Import JSON</button>
+      <input type="file" id="importFile" accept="application/json" hidden>
+      <button class="act reject" id="seedBtn">Load sample data</button>
+      <button class="act remove" id="clearBtn">Clear all</button>
+    </div>
+    <p class="note">Tip: the same controls are scriptable from the console &mdash; see
+      <code>EuroReportAPI</code> (try <code>EuroReportAPI.help()</code>).</p>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var STORE_KEY = "the_report_links_v1";
+
+  /* ---------------- storage ---------------- */
+  function load(){
+    try{ return JSON.parse(localStorage.getItem(STORE_KEY)) || []; }
+    catch(e){ return []; }
+  }
+  function save(list){ localStorage.setItem(STORE_KEY, JSON.stringify(list)); render(); renderAdmin(); }
+  function uid(){ return Date.now().toString(36) + Math.random().toString(36).slice(2,7); }
+  function now(){ return new Date().toISOString(); }
+
+  function sanitizeUrl(u){
+    try{
+      var p = new URL(String(u), location.href);
+      if(p.protocol === "http:" || p.protocol === "https:") return p.href;
+    }catch(e){}
+    return null;
+  }
+  function normalize(input, status){
+    var url = sanitizeUrl(input.url);
+    if(!input || !input.title || !url) return null;
+    var region = (String(input.region||"US").toUpperCase()==="EU") ? "EU" : "US";
+    var priority = ["p1","p2","p3"].indexOf(input.priority)>=0 ? input.priority : "p2";
+    return {
+      id: input.id || uid(),
+      title: String(input.title).trim().slice(0,200),
+      url: url,
+      region: region,
+      priority: priority,
+      featured: !!input.featured,
+      flash: !!input.flash,
+      source: input.source ? String(input.source).slice(0,60) : "",
+      status: status || "pending",
+      createdAt: input.createdAt || now(),
+      decidedAt: input.decidedAt || null
+    };
+  }
+
+  /* ---------------- public render ---------------- */
+  var currentRegion = "ALL";
+
+  function esc(s){ return String(s).replace(/[&<>"']/g, function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+
+  function matchRegion(l){ return currentRegion==="ALL" || l.region===currentRegion; }
+  function prio(l){ return ["p1","p2","p3"].indexOf(l.priority)>=0 ? l.priority : "p2"; }
+
+  function render(){
+    var list = load().filter(function(l){ return l.status==="approved" && matchRegion(l); });
+
+    /* splash = first featured, else nothing */
+    var splash = document.getElementById("splash");
+    var feat = list.filter(function(l){ return l.featured; })
+                   .sort(function(a,b){ return b.createdAt.localeCompare(a.createdAt); })[0];
+    if(feat){
+      splash.innerHTML = '<a href="'+esc(feat.url)+'" target="_blank" rel="noopener">'+
+        esc(feat.title)+'</a><span class="region">'+esc(feat.region)+'</span>';
+    } else {
+      splash.innerHTML = '<span class="empty">No featured headline.</span>';
+    }
+
+    var rows = document.getElementById("rows");
+    rows.innerHTML = "";
+    var rest = list.filter(function(l){ return l!==feat; });
+    var any = false;
+    ["p1","p2","p3"].forEach(function(p){
+      var items = rest.filter(function(l){ return prio(l)===p; })
+                      .sort(function(a,b){ return b.createdAt.localeCompare(a.createdAt); });
+      if(!items.length) return;
+      any = true;
+      var band = document.createElement("div");
+      band.className = "prow " + p;
+      items.forEach(function(l){
+        var d = document.createElement("div");
+        d.className = "item" + (l.flash ? " flash" : "");
+        d.innerHTML = '<a href="'+esc(l.url)+'" target="_blank" rel="noopener">'+esc(l.title)+'</a>'+
+          '<span class="meta">'+esc(l.region)+(l.source?' &middot; '+esc(l.source):'')+'</span>';
+        band.appendChild(d);
+      });
+      rows.appendChild(band);
+    });
+    if(!any){
+      rows.innerHTML = '<div class="empty">No approved headlines yet.</div>';
+    }
+  }
+
+  /* ---------------- admin render ---------------- */
+  function row(l, kind){
+    var tr = document.createElement("tr");
+    tr.innerHTML =
+      '<td><strong>'+esc(l.title)+'</strong>'+(l.featured?' ★':'')+(l.flash?' <span style="color:#c00">FLASH</span>':'')+
+        (l.source?' <span class="pill">'+esc(l.source)+'</span>':'')+
+        '<div class="u">'+esc(l.url)+'</div></td>'+
+      '<td><span class="pill '+l.region+'">'+l.region+'</span></td>'+
+      '<td class="prioCell"></td><td></td>';
+
+    var pcell = tr.querySelector(".prioCell");
+    var sel = document.createElement("select");
+    sel.style.font = "inherit";
+    ["p1","p2","p3"].forEach(function(p){
+      var o = document.createElement("option");
+      o.value = p; o.textContent = p.toUpperCase();
+      if(prio(l)===p) o.selected = true;
+      sel.appendChild(o);
+    });
+    sel.onchange = function(){ API.setPriority(l.id, sel.value); };
+    pcell.appendChild(sel);
+
+    var cell = tr.lastChild;
+    if(kind==="pending"){
+      var a = btn("Approve","act approve"); a.onclick=function(){ API.approve(l.id); };
+      var r = btn("Reject","act reject"); r.onclick=function(){ API.reject(l.id); };
+      cell.appendChild(a); cell.appendChild(document.createTextNode(" ")); cell.appendChild(r);
+    } else {
+      var rm = btn("Remove","act remove"); rm.onclick=function(){ API.remove(l.id); };
+      cell.appendChild(rm);
+    }
+    return tr;
+  }
+  function btn(t,c){ var b=document.createElement("button"); b.className=c; b.textContent=t; return b; }
+
+  function renderAdmin(){
+    var all = load();
+    var pend = all.filter(function(l){return l.status==="pending";});
+    var appr = all.filter(function(l){return l.status==="approved";});
+    document.getElementById("pendCount").textContent = pend.length;
+    document.getElementById("apprCount").textContent = appr.length;
+    var pb = document.querySelector("#pendTable tbody"); pb.innerHTML="";
+    pend.forEach(function(l){ pb.appendChild(row(l,"pending")); });
+    var ab = document.querySelector("#apprTable tbody"); ab.innerHTML="";
+    appr.forEach(function(l){ ab.appendChild(row(l,"approved")); });
+  }
+
+  /* ---------------- public API ---------------- */
+  var API = {
+    /** Add a link -> goes to PENDING. Returns the stored object or null if invalid. */
+    add: function(input){
+      var rec = normalize(input, "pending");
+      if(!rec) { console.warn("EuroReportAPI.add: title and a valid http(s) url are required."); return null; }
+      var list = load(); list.push(rec); save(list); return rec;
+    },
+    /** Add many at once (array). Returns array of stored objects. */
+    addMany: function(arr){ return (arr||[]).map(API.add).filter(Boolean); },
+    approve: function(id){ return setStatus(id,"approved"); },
+    reject:  function(id){ return setStatus(id,"rejected"); },
+    /** Approve every pending link at once. Returns the count approved. */
+    approveAll: function(){
+      var list = load(), n = 0, t = now();
+      list.forEach(function(l){ if(l.status==="pending"){ l.status="approved"; l.decidedAt=t; n++; } });
+      if(n) save(list);
+      return n;
+    },
+    remove:  function(id){ var l=load().filter(function(x){return x.id!==id;}); save(l); return true; },
+    /** Remove every approved (live) link at once. Returns the count removed. */
+    removeAll: function(){
+      var before = load(), kept = before.filter(function(l){ return l.status!=="approved"; });
+      var n = before.length - kept.length;
+      if(n) save(kept);
+      return n;
+    },
+    /** Set hidden priority (p1|p2|p3) on a link. Returns true if found. */
+    setPriority: function(id, p){
+      if(["p1","p2","p3"].indexOf(p)<0) return false;
+      var list=load(), found=false;
+      list.forEach(function(l){ if(l.id===id){ l.priority=p; found=true; } });
+      if(found) save(list);
+      return found;
+    },
+    /** List links, optional filter {status, region}. */
+    list: function(f){ f=f||{}; return load().filter(function(l){
+      return (!f.status||l.status===f.status) && (!f.region||l.region===f.region); }); },
+    pending:  function(){ return API.list({status:"pending"}); },
+    approved: function(){ return API.list({status:"approved"}); },
+    export:   function(){ return JSON.stringify(load(), null, 2); },
+    import:   function(json){
+      var arr = typeof json==="string" ? JSON.parse(json) : json;
+      if(!Array.isArray(arr)) throw new Error("Expected an array.");
+      var clean = arr.map(function(x){ return normalize(x, x.status); }).filter(Boolean);
+      save(clean); return clean.length;
+    },
+    clear: function(){ save([]); },
+    help: function(){ console.log(
+"EuroReportAPI methods:\n"+
+"  add({title,url,region:'EU'|'US',priority:'p1'|'p2'|'p3',featured,flash})  -> pending\n"+
+"  addMany([...])\n"+
+"  approve(id) / reject(id) / remove(id) / approveAll() / removeAll() / setPriority(id,'p1')\n"+
+"  list({status,region}) / pending() / approved()\n"+
+"  export() -> JSON string   import(json)\n"+
+"  fetchFeeds({feeds,limit}) -> Promise<{added,skipped,errors}>  (UK RSS -> pending)\n"+
+"  clear()"); return "see console"; }
+  };
+  function setStatus(id, status){
+    var list = load(), found=false;
+    list.forEach(function(l){ if(l.id===id){ l.status=status; l.decidedAt=now(); found=true; } });
+    if(found) save(list);
+    return found;
+  }
+  window.EuroReportAPI = API;
+
+  /* ---------------- UK news aggregator ---------------- */
+  /* Cross-origin RSS can't be fetched directly from a file:// page, so the admin
+     fetch is routed through a public CORS proxy. This runs ONLY in the admin
+     console; the public page makes no network calls. */
+  /* Tried in order per feed until one returns content (public proxies are flaky). */
+  var PROXIES = [
+    function(u){ return "https://api.codetabs.com/v1/proxy/?quest=" + encodeURIComponent(u); },
+    function(u){ return "https://api.allorigins.win/raw?url=" + encodeURIComponent(u); },
+    function(u){ return "https://corsproxy.io/?url=" + encodeURIComponent(u); }
+  ];
+  var FEEDS = [
+    {name:"BBC News (UK)",   url:"http://feeds.bbci.co.uk/news/uk/rss.xml",                 priority:"p1"},
+    {name:"Guardian UK",     url:"https://www.theguardian.com/uk-news/rss",                 priority:"p1"},
+    {name:"Sky News (UK)",   url:"https://feeds.skynews.com/feeds/rss/uk.xml",              priority:"p2"},
+    {name:"BBC London",      url:"https://feeds.bbci.co.uk/news/england/london/rss.xml",    priority:"p2"},
+    {name:"BBC Manchester",  url:"https://feeds.bbci.co.uk/news/england/manchester/rss.xml",priority:"p3"},
+    {name:"BBC Birmingham",  url:"https://feeds.bbci.co.uk/news/england/birmingham_and_black_country/rss.xml",priority:"p3"}
+  ];
+
+  function parseFeed(xmlText){
+    var doc = new DOMParser().parseFromString(xmlText, "application/xml");
+    if(doc.querySelector("parsererror")) throw new Error("invalid XML");
+    var out = [], items = doc.querySelectorAll("item");
+    if(items.length){
+      items.forEach(function(it){
+        var t=it.querySelector("title"), l=it.querySelector("link");
+        out.push({ title: t?t.textContent.trim():"", url: l?l.textContent.trim():"" });
+      });
+    } else {
+      doc.querySelectorAll("entry").forEach(function(it){
+        var t=it.querySelector("title"), l=it.querySelector("link");
+        out.push({ title: t?t.textContent.trim():"", url: l?(l.getAttribute("href")||l.textContent.trim()):"" });
+      });
+    }
+    return out;
+  }
+
+  API.feeds = FEEDS;
+  API.proxies = PROXIES;
+
+  /* Fetch one feed, trying each proxy until one yields parseable XML. */
+  function fetchViaProxies(feedUrl){
+    var lastErr = "no proxy";
+    function attempt(i){
+      if(i >= PROXIES.length) return Promise.reject(new Error("all proxies failed ("+lastErr+")"));
+      return fetch(PROXIES[i](feedUrl))
+        .then(function(r){ if(!r.ok) throw new Error("HTTP "+r.status); return r.text(); })
+        .then(function(txt){
+          if(!txt || txt.indexOf("<") === -1) throw new Error("empty/non-XML");
+          return txt;
+        })
+        .catch(function(e){ lastErr = e.message; return attempt(i+1); });
+    }
+    return attempt(0);
+  }
+
+  /** Fetch selected UK feeds -> parse -> add NEW items to Pending. Async.
+      opts: {feeds:[...], limit:Number}. Resolves to {added, skipped, errors[]}. */
+  API.fetchFeeds = function(opts){
+    opts = opts || {};
+    var feeds = opts.feeds || FEEDS;
+    var limit = opts.limit || 8;
+    var seen = {}; load().forEach(function(l){ seen[l.url]=true; });
+    var summary = { added:0, skipped:0, errors:[] };
+    return Promise.all(feeds.map(function(f){
+      return fetchViaProxies(f.url)
+        .then(function(txt){
+          parseFeed(txt).slice(0, limit).forEach(function(it){
+            var u = sanitizeUrl(it.url);
+            if(!it.title || !u) return;
+            if(seen[u]){ summary.skipped++; return; }
+            seen[u] = true;
+            if(API.add({ title:it.title, url:u, region:"EU", priority:f.priority, source:f.name })) summary.added++;
+          });
+        })
+        .catch(function(e){ summary.errors.push(f.name+": "+e.message); });
+    })).then(function(){ return summary; });
+  };
+
+  /* ---------------- sample data ---------------- */
+  var SAMPLE = [
+    {title:"PARLIAMENT VOTES ON BUDGET TONIGHT",url:"https://example.com/uk-budget",region:"EU",priority:"p1",featured:true},
+    {title:"WHITE HOUSE BRIEFING SET FOR NOON",url:"https://example.com/us-wh",region:"US",priority:"p1"},
+    {title:"POUND RALLIES AGAINST DOLLAR",url:"https://example.com/gbp",region:"EU",priority:"p2",flash:true},
+    {title:"SENATE HEARING OPENS",url:"https://example.com/senate",region:"US",priority:"p2"},
+    {title:"NHS WAIT TIMES UNDER REVIEW",url:"https://example.com/nhs",region:"EU",priority:"p3"},
+    {title:"WALL ST OPENS HIGHER",url:"https://example.com/markets",region:"US",priority:"p3"}
+  ];
+
+  /* ---------------- wire up UI ---------------- */
+  document.getElementById("year").textContent = new Date().getFullYear();
+  document.getElementById("dateLabel").textContent =
+    new Date().toLocaleDateString(undefined,{weekday:"long",year:"numeric",month:"long",day:"numeric"});
+
+  document.querySelectorAll(".filters button").forEach(function(b){
+    b.onclick=function(){
+      document.querySelectorAll(".filters button").forEach(function(x){x.classList.remove("active");});
+      b.classList.add("active"); currentRegion=b.getAttribute("data-region"); render();
+    };
+  });
+
+  var admin=document.getElementById("admin");
+  document.getElementById("adminOpen").onclick=function(){ admin.classList.add("open"); renderAdmin(); };
+  document.getElementById("adminClose").onclick=function(){ admin.classList.remove("open"); };
+
+  document.getElementById("addForm").onsubmit=function(e){
+    e.preventDefault();
+    var f=e.target;
+    var rec=API.add({
+      title:f.title.value, url:f.url.value, region:f.region.value,
+      priority:f.priority.value, featured:f.featured.checked, flash:f.flash.checked
+    });
+    if(rec){ f.reset(); }
+  };
+
+  document.getElementById("exportBtn").onclick=function(){
+    var blob=new Blob([API.export()],{type:"application/json"});
+    var a=document.createElement("a"); a.href=URL.createObjectURL(blob);
+    a.download="the-report-links.json"; a.click(); URL.revokeObjectURL(a.href);
+  };
+  document.getElementById("importBtn").onclick=function(){ document.getElementById("importFile").click(); };
+  document.getElementById("importFile").onchange=function(e){
+    var file=e.target.files[0]; if(!file) return;
+    var r=new FileReader();
+    r.onload=function(){ try{ var n=API.import(r.result); alert("Imported "+n+" links."); }
+      catch(err){ alert("Import failed: "+err.message); } };
+    r.readAsText(file); e.target.value="";
+  };
+  document.getElementById("seedBtn").onclick=function(){
+    if(load().length && !confirm("Load sample data on top of existing links?")) return;
+    API.addMany(SAMPLE);
+    // auto-approve the samples so the page isn't empty
+    API.pending().forEach(function(l){ API.approve(l.id); });
+  };
+  document.getElementById("clearBtn").onclick=function(){
+    if(confirm("Delete ALL links (pending + approved)? This cannot be undone.")) API.clear();
+  };
+  document.getElementById("approveAllBtn").onclick=function(){
+    var pend=API.pending().length;
+    if(!pend){ return; }
+    if(confirm("Approve all "+pend+" pending link(s)?")){ API.approveAll(); }
+  };
+  document.getElementById("removeAllBtn").onclick=function(){
+    var appr=API.approved().length;
+    if(!appr){ return; }
+    if(confirm("Remove all "+appr+" approved (live) link(s)? This cannot be undone.")){ API.removeAll(); }
+  };
+
+  /* ----- aggregator UI ----- */
+  var feedListEl = document.getElementById("feedList");
+  FEEDS.forEach(function(f, i){
+    var lab=document.createElement("label");
+    lab.className="checkrow"; lab.style.fontWeight="normal"; lab.style.fontSize="13px";
+    lab.innerHTML='<input type="checkbox" class="feedChk" data-i="'+i+'" checked> '+
+      esc(f.name)+' <span class="pill EU">EU</span> <span style="color:#888">'+esc(f.priority)+'</span>';
+    feedListEl.appendChild(lab);
+  });
+  document.getElementById("feedAll").onchange=function(e){
+    document.querySelectorAll(".feedChk").forEach(function(c){ c.checked=e.target.checked; });
+  };
+  document.getElementById("fetchBtn").onclick=function(){
+    var btnEl=this, status=document.getElementById("fetchStatus");
+    var chosen=[];
+    document.querySelectorAll(".feedChk").forEach(function(c){
+      if(c.checked) chosen.push(FEEDS[+c.getAttribute("data-i")]);
+    });
+    if(!chosen.length){ status.textContent="Select at least one feed."; return; }
+    var limit=+document.getElementById("feedLimit").value || 8;
+    btnEl.disabled=true; status.textContent="Fetching "+chosen.length+" feed(s)…";
+    API.fetchFeeds({feeds:chosen, limit:limit}).then(function(s){
+      var msg="Added "+s.added+" new to Pending; skipped "+s.skipped+" duplicate(s).";
+      if(s.errors.length) msg+=" Errors: "+s.errors.join("; ");
+      status.textContent=msg;
+    }).catch(function(e){
+      status.textContent="Fetch failed: "+e.message+" (CORS proxy may be down).";
+    }).then(function(){ btnEl.disabled=false; });
+  };
+
+  /* one-time migration: old UK region + column field -> EU + priority */
+  (function migrate(){
+    var list = load(), changed = false;
+    var map = { center:"p1", left:"p2", right:"p3" };
+    list.forEach(function(l){
+      if(l.region==="UK"){ l.region="EU"; changed=true; }
+      if(["p1","p2","p3"].indexOf(l.priority)<0){
+        l.priority = map[l.column] || "p2"; changed=true;
+      }
+      if("column" in l){ delete l.column; changed=true; }
+    });
+    if(changed) localStorage.setItem(STORE_KEY, JSON.stringify(list));
+  })();
+
+  render(); renderAdmin();
+})();
+</script>
+</body>
+</html>

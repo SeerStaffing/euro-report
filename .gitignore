@@ -1,0 +1,11 @@
+# OS / editor cruft
+Thumbs.db
+.DS_Store
+desktop.ini
+*.swp
+.vscode/
+.idea/
+
+# Local data exports from the app
+the-report-links.json
+*.local.json
