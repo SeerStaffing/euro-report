@@ -1,0 +1,14 @@
+[
+  { "label": "Politics",    "terms": ["politics","parliament","westminster","downing street","prime minister","minister","mp ","mps","tory","tories","conservative","labour","lib dem","reform uk","starmer","badenoch","farage","commons","lords","by-election","cabinet","whitehall"] },
+  { "label": "Economy",     "terms": ["economy","economic","inflation","gdp","interest rate","bank of england","pound","sterling","recession","budget","tax","taxes","hmrc","cost of living","wages","jobs","unemployment","markets","ftse"] },
+  { "label": "NHS/Health",  "terms": ["nhs","health","hospital","doctor","doctors","nurse","gp ","ambulance","a&e","care","patients","cancer","mental health","waiting list"] },
+  { "label": "Immigration", "terms": ["immigration","asylum","migrant","migrants","channel crossing","small boats","border","deportation","refugee","home office"] },
+  { "label": "Crime",       "terms": ["crime","police","murder","court","sentenced","jailed","arrest","stabbing","assault","fraud","trial","prison","knife"] },
+  { "label": "Energy",      "terms": ["energy","gas","electricity","ofgem","oil","petrol","renewables","wind farm","nuclear","net zero","energy bill","power"] },
+  { "label": "Education",   "terms": ["school","schools","university","universities","student","students","ofsted","teacher","teachers","exam","gcse","a-level","tuition"] },
+  { "label": "Royals",      "terms": ["king charles","queen camilla","royal","prince","princess","palace","monarch","windsor","duke","duchess"] },
+  { "label": "Weather",     "terms": ["weather","storm","flood","flooding","heatwave","snow","met office","rain","amber warning","ice"] },
+  { "label": "Football",    "terms": ["football","premier league","fa cup","champions league","goal","manager","transfer","fixture","england squad","wembley"] },
+  { "label": "Transport",   "terms": ["rail","train","strike","airport","flight","flights","tube","traffic","motorway","road","hs2","aviation"] },
+  { "label": "World",       "terms": ["ukraine","russia","gaza","israel","trump","united states","china","europe","eu ","nato","middle east","putin"] }
+]

@@ -1,0 +1,25 @@
+[
+  { "name": "BBC News",             "url": "http://feeds.bbci.co.uk/news/rss.xml",                                  "region": "EU", "priority": "p1" },
+  { "name": "BBC News (UK)",         "url": "http://feeds.bbci.co.uk/news/uk/rss.xml",                               "region": "EU", "priority": "p1" },
+  { "name": "Guardian UK",           "url": "https://www.theguardian.com/uk-news/rss",                               "region": "EU", "priority": "p1" },
+  { "name": "Sky News (UK)",         "url": "https://feeds.skynews.com/feeds/rss/uk.xml",                            "region": "EU", "priority": "p1" },
+  { "name": "The Independent (UK)",  "url": "https://www.independent.co.uk/news/uk/rss",                             "region": "EU", "priority": "p1" },
+
+  { "name": "BBC Politics",          "url": "http://feeds.bbci.co.uk/news/politics/rss.xml",                         "region": "EU", "priority": "p2" },
+  { "name": "BBC Business",          "url": "http://feeds.bbci.co.uk/news/business/rss.xml",                         "region": "EU", "priority": "p2" },
+  { "name": "Guardian Politics",     "url": "https://www.theguardian.com/politics/rss",                              "region": "EU", "priority": "p2" },
+  { "name": "Sky News (Home)",       "url": "https://feeds.skynews.com/feeds/rss/home.xml",                          "region": "EU", "priority": "p2" },
+  { "name": "Sky News (Politics)",   "url": "https://feeds.skynews.com/feeds/rss/politics.xml",                      "region": "EU", "priority": "p2" },
+  { "name": "Daily Mirror (UK)",     "url": "https://www.mirror.co.uk/news/uk-news/?service=rss",                    "region": "EU", "priority": "p2" },
+  { "name": "Metro (UK)",            "url": "https://metro.co.uk/news/uk/feed/",                                     "region": "EU", "priority": "p2" },
+  { "name": "Evening Standard (UK)", "url": "https://www.standard.co.uk/news/uk/rss",                                "region": "EU", "priority": "p2" },
+  { "name": "Daily Express",         "url": "https://www.express.co.uk/posts/rss/1/news",                            "region": "EU", "priority": "p2" },
+
+  { "name": "BBC England",           "url": "https://feeds.bbci.co.uk/news/england/rss.xml",                         "region": "EU", "priority": "p3" },
+  { "name": "BBC Scotland",          "url": "https://feeds.bbci.co.uk/news/scotland/rss.xml",                        "region": "EU", "priority": "p3" },
+  { "name": "BBC Wales",             "url": "https://feeds.bbci.co.uk/news/wales/rss.xml",                           "region": "EU", "priority": "p3" },
+  { "name": "BBC Northern Ireland",  "url": "https://feeds.bbci.co.uk/news/northern_ireland/rss.xml",                "region": "EU", "priority": "p3" },
+  { "name": "BBC London",            "url": "https://feeds.bbci.co.uk/news/england/london/rss.xml",                  "region": "EU", "priority": "p3" },
+  { "name": "BBC Manchester",        "url": "https://feeds.bbci.co.uk/news/england/manchester/rss.xml",              "region": "EU", "priority": "p3" },
+  { "name": "BBC Birmingham",        "url": "https://feeds.bbci.co.uk/news/england/birmingham_and_black_country/rss.xml", "region": "EU", "priority": "p3" }
+]

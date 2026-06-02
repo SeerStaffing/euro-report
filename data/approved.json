@@ -1,0 +1,8 @@
+[
+  { "id": "sample-001", "title": "Chancellor signals tax changes ahead of autumn Budget", "url": "https://example.com/politics/budget", "source": "Euro Report (sample)", "region": "EU", "priority": "p1", "featured": true, "flash": false, "addedAt": "2026-06-02T00:00:00.000Z" },
+  { "id": "sample-002", "title": "Bank of England holds interest rates as inflation eases", "url": "https://example.com/economy/boe", "source": "Euro Report (sample)", "region": "EU", "priority": "p1", "featured": false, "flash": false, "addedAt": "2026-06-02T00:00:00.000Z" },
+  { "id": "sample-003", "title": "NHS waiting lists fall for third month, hospitals report", "url": "https://example.com/health/nhs", "source": "Euro Report (sample)", "region": "EU", "priority": "p2", "featured": false, "flash": false, "addedAt": "2026-06-02T00:00:00.000Z" },
+  { "id": "sample-004", "title": "Premier League: transfer deadline day fixtures confirmed", "url": "https://example.com/sport/football", "source": "Euro Report (sample)", "region": "EU", "priority": "p2", "featured": false, "flash": false, "addedAt": "2026-06-02T00:00:00.000Z" },
+  { "id": "sample-005", "title": "Met Office issues amber storm warning across Scotland", "url": "https://example.com/weather/storm", "source": "Euro Report (sample)", "region": "EU", "priority": "p3", "featured": false, "flash": true, "addedAt": "2026-06-02T00:00:00.000Z" },
+  { "id": "sample-006", "title": "Ukraine talks resume as European leaders meet in Brussels", "url": "https://example.com/world/ukraine", "source": "Euro Report (sample)", "region": "EU", "priority": "p3", "featured": false, "flash": false, "addedAt": "2026-06-02T00:00:00.000Z" }
+]

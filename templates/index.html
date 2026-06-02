@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EURO REPORT</title>
+<style>
+  :root{ --ink:#000; --link:#0000cc; --visited:#551a8b; --red:#cc0000; --bg:#fff; }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+    font-family:"Times New Roman",Times,Georgia,serif;}
+  a{color:var(--link);text-decoration:none;}
+  a:visited{color:var(--visited);}
+  a:hover{text-decoration:underline;}
+
+  .masthead{text-align:center;padding:10px 8px 4px;border-bottom:3px double var(--ink);}
+  .masthead h1{font-size:clamp(32px,7vw,64px);font-weight:bold;letter-spacing:1px;margin:0;line-height:1;}
+  .masthead .tag{font-size:13px;font-style:italic;margin-top:2px;}
+
+  .datebar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;
+    font-size:12px;font-weight:bold;text-transform:uppercase;padding:4px 10px;border-bottom:1px solid var(--ink);}
+  .filters button{font:inherit;font-size:11px;font-weight:bold;text-transform:uppercase;background:#fff;
+    border:1px solid #000;padding:2px 8px;margin-left:4px;cursor:pointer;}
+  .filters button.active{background:#000;color:#fff;}
+
+  .topics{display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:8px 10px;
+    border-bottom:1px solid var(--ink);font-family:Arial,Helvetica,sans-serif;}
+  .topics .lbl{font-size:11px;font-weight:bold;text-transform:uppercase;color:#555;margin-right:2px;}
+  .topics .chip{font:inherit;font-size:11px;border:1px solid #888;border-radius:12px;background:#fff;
+    padding:2px 10px;cursor:pointer;color:#333;}
+  .topics .chip.active{background:#1e3a8a;color:#fff;border-color:#1e3a8a;}
+  .topics .clear{margin-left:auto;font-size:11px;border:none;background:none;cursor:pointer;
+    color:#cc0000;text-decoration:underline;}
+
+  .splash{text-align:center;padding:14px 12px;border-bottom:1px solid var(--ink);}
+  .splash a{font-size:clamp(22px,4vw,38px);font-weight:bold;line-height:1.1;text-transform:uppercase;color:var(--ink);}
+  .splash a:hover{color:var(--red);}
+  .splash .region{display:inline-block;font-size:12px;color:var(--red);font-style:italic;text-transform:uppercase;margin-top:6px;}
+
+  .rows{padding:0;}
+  .prow{display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;padding:14px 16px;border-bottom:1px solid var(--ink);}
+  .prow:last-child{border-bottom:none;}
+  .prow.p1{background:#fafafa;}
+  .item{text-align:center;line-height:1.2;padding:4px 18px;position:relative;}
+  .prow .item + .item::before{content:"";position:absolute;left:0;top:12%;height:76%;border-left:1px solid #bbb;}
+  .item a{font-weight:bold;text-transform:uppercase;}
+  .item.flash a{color:var(--red);}
+  .item .meta{display:block;font-size:10px;color:#666;font-style:italic;text-transform:uppercase;margin-top:2px;}
+  .prow.p1 .item{font-size:clamp(18px,2.4vw,26px);}
+  .prow.p2 .item{font-size:clamp(15px,1.8vw,19px);}
+  .prow.p3 .item{font-size:13px;}
+  .empty{font-size:13px;font-style:italic;color:#777;text-align:center;padding:16px;}
+
+  footer{border-top:3px double var(--ink);text-align:center;font-size:11px;text-transform:uppercase;padding:10px;margin-top:10px;color:#444;}
+
+  @media(max-width:760px){ .item{padding:4px 10px;} .prow .item + .item::before{display:none;} }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <h1>EURO REPORT</h1>
+  <div class="tag">EU &amp; US HEADLINES &mdash; CURATED</div>
+</header>
+
+<div class="datebar">
+  <span id="dateLabel"></span>
+  <span class="filters">
+    REGION:
+    <button data-region="ALL" class="active">All</button>
+    <button data-region="EU">EU</button>
+    <button data-region="US">US</button>
+  </span>
+</div>
+
+<div class="topics" id="topics"><span class="lbl">Topics:</span></div>
+
+<section class="splash" id="splash"></section>
+
+<main class="rows" id="rows"></main>
+
+<footer>
+  &copy; <span id="year"></span> EURO REPORT &nbsp;&middot;&nbsp; built <span id="buildTime"></span>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var DATA = __DATA__;
+  var KEYWORDS = __KEYWORDS__;
+  var BUILD_TIME = "__BUILD_TIME__";
+
+  var currentRegion = "ALL";
+  var selected = {};   // keyword label -> true
+
+  function esc(s){ return String(s).replace(/[&<>"']/g, function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+  function prio(l){ return ["p1","p2","p3"].indexOf(l.priority)>=0 ? l.priority : "p2"; }
+
+  function selectedList(){ return Object.keys(selected).filter(function(k){ return selected[k]; }); }
+  function matches(l){
+    if(currentRegion!=="ALL" && l.region!==currentRegion) return false;
+    var sel = selectedList();
+    if(sel.length){
+      var kws = l.keywords || [];
+      if(!sel.some(function(k){ return kws.indexOf(k)>=0; })) return false;
+    }
+    return true;
+  }
+
+  function render(){
+    var list = DATA.filter(matches);
+
+    var splash = document.getElementById("splash");
+    var feat = list.filter(function(l){ return l.featured; })[0];
+    if(feat){
+      splash.innerHTML = '<a href="'+esc(feat.url)+'" target="_blank" rel="noopener">'+esc(feat.title)+
+        '</a><span class="region">'+esc(feat.region)+(feat.source?' &middot; '+esc(feat.source):'')+'</span>';
+    } else {
+      splash.innerHTML = '<span class="empty">No featured headline.</span>';
+    }
+
+    var rows = document.getElementById("rows");
+    rows.innerHTML = "";
+    var rest = list.filter(function(l){ return l!==feat; });
+    var any = false;
+    ["p1","p2","p3"].forEach(function(p){
+      var items = rest.filter(function(l){ return prio(l)===p; });
+      if(!items.length) return;
+      any = true;
+      var band = document.createElement("div");
+      band.className = "prow " + p;
+      items.forEach(function(l){
+        var d = document.createElement("div");
+        d.className = "item" + (l.flash ? " flash" : "");
+        var tags = (l.keywords||[]).slice(0,3).join(" · ");
+        d.innerHTML = '<a href="'+esc(l.url)+'" target="_blank" rel="noopener">'+esc(l.title)+'</a>'+
+          '<span class="meta">'+esc(l.region)+(l.source?' &middot; '+esc(l.source):'')+
+          (tags?' &middot; '+esc(tags):'')+'</span>';
+        band.appendChild(d);
+      });
+      rows.appendChild(band);
+    });
+    if(!any) rows.innerHTML = '<div class="empty">No headlines match the current filters.</div>';
+  }
+
+  /* region filter */
+  document.querySelectorAll(".filters button").forEach(function(b){
+    b.onclick=function(){
+      document.querySelectorAll(".filters button").forEach(function(x){x.classList.remove("active");});
+      b.classList.add("active"); currentRegion=b.getAttribute("data-region"); render();
+    };
+  });
+
+  /* topic (keyword) chips */
+  var topics = document.getElementById("topics");
+  KEYWORDS.forEach(function(label){
+    var b=document.createElement("button");
+    b.className="chip"; b.textContent=label;
+    b.onclick=function(){
+      selected[label]=!selected[label];
+      b.classList.toggle("active", !!selected[label]);
+      render();
+    };
+    topics.appendChild(b);
+  });
+  var clear=document.createElement("button");
+  clear.className="clear"; clear.textContent="clear topics";
+  clear.onclick=function(){
+    selected={};
+    document.querySelectorAll(".topics .chip").forEach(function(c){ c.classList.remove("active"); });
+    render();
+  };
+  topics.appendChild(clear);
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+  document.getElementById("dateLabel").textContent =
+    new Date().toLocaleDateString(undefined,{weekday:"long",year:"numeric",month:"long",day:"numeric"});
+  try { document.getElementById("buildTime").textContent = new Date(BUILD_TIME).toLocaleString(); }
+  catch(e){ document.getElementById("buildTime").textContent = BUILD_TIME; }
+
+  render();
+})();
+</script>
+</body>
+</html>
