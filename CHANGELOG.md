@@ -6,6 +6,17 @@ uses [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Added
+- **Tier-1 Google News discovery** (`data/discovery.json`) — per-region (EU/US)
+  Google News RSS search surfaces articles from across the whole press, beyond the
+  curated feeds. Driven by `<source>` attribution; titles de-sourced.
+- **Self-healing parser** (`data/feed-health.json`) — per-source health tracking,
+  RSS autodiscovery from a site homepage when a direct feed fails (remembers the
+  resolved URL), and unhealthy-source flagging in the run summary.
+- **US direct feeds** added to `data/feeds.json` (NYT, NPR, Politico, The Hill).
+- Cross-source de-duplication by normalized title (in addition to URL).
+- High-volume test settings (per-feed 40, per-query 80, approved cap 1000).
+
 ### Changed
 - Bumped workflow actions to Node 24-compatible majors (checkout v6, setup-node v6,
   configure-pages v6, upload-pages-artifact v5, deploy-pages v5) to clear the
