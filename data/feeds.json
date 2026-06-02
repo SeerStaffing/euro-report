@@ -21,5 +21,10 @@
   { "name": "BBC Northern Ireland",  "url": "https://feeds.bbci.co.uk/news/northern_ireland/rss.xml",                "region": "EU", "priority": "p3" },
   { "name": "BBC London",            "url": "https://feeds.bbci.co.uk/news/england/london/rss.xml",                  "region": "EU", "priority": "p3" },
   { "name": "BBC Manchester",        "url": "https://feeds.bbci.co.uk/news/england/manchester/rss.xml",              "region": "EU", "priority": "p3" },
-  { "name": "BBC Birmingham",        "url": "https://feeds.bbci.co.uk/news/england/birmingham_and_black_country/rss.xml", "region": "EU", "priority": "p3" }
+  { "name": "BBC Birmingham",        "url": "https://feeds.bbci.co.uk/news/england/birmingham_and_black_country/rss.xml", "region": "EU", "priority": "p3" },
+
+  { "name": "New York Times",        "url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",             "region": "US", "priority": "p1" },
+  { "name": "NPR News",              "url": "https://feeds.npr.org/1001/rss.xml",                                    "region": "US", "priority": "p1" },
+  { "name": "Politico",              "url": "https://rss.politico.com/politics-news.xml",                            "region": "US", "priority": "p2" },
+  { "name": "The Hill",              "url": "https://thehill.com/news/feed/",                                        "region": "US", "priority": "p2" }
 ]

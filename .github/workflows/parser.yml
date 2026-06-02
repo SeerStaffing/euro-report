@@ -6,9 +6,9 @@ on:
   workflow_dispatch:
     inputs:
       per_feed:
-        description: "Max items to pull per feed"
+        description: "Max items to pull per direct feed"
         required: false
-        default: "10"
+        default: "40"
 
 permissions:
   contents: write
@@ -31,7 +31,7 @@ jobs:
       - name: Fetch feeds
         id: parse
         env:
-          PER_FEED: ${{ github.event.inputs.per_feed || '10' }}
+          PER_FEED: ${{ github.event.inputs.per_feed || '40' }}
         run: node scripts/parse.mjs
 
       - name: Open / update review PR
@@ -44,7 +44,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           BRANCH="parser/auto-update"
           git checkout -B "$BRANCH"
-          git add data/approved.json data/seen.json
+          git add data/approved.json data/seen.json data/feed-health.json
           if git diff --cached --quiet; then
             echo "No data changes to commit."
             exit 0

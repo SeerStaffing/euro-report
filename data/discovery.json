@@ -1,0 +1,54 @@
+{
+  "_comment": "Tier-1 discovery via Google News RSS search. Dev-managed (source). Each region pulls articles from across the whole press, not just feeds.json. region/priority applied to discovered items; locale biases results to that country.",
+  "perQuery": 80,
+  "regions": [
+    {
+      "region": "EU",
+      "locale": "hl=en-GB&gl=GB&ceid=GB:en",
+      "priority": "p3",
+      "queries": [
+        "UK politics",
+        "UK economy",
+        "UK business",
+        "NHS",
+        "UK immigration",
+        "UK crime",
+        "UK energy",
+        "UK education",
+        "UK weather",
+        "UK transport",
+        "Premier League football",
+        "London news",
+        "Scotland news",
+        "Wales news",
+        "Northern Ireland news",
+        "Brexit",
+        "European Union"
+      ]
+    },
+    {
+      "region": "US",
+      "locale": "hl=en-US&gl=US&ceid=US:en",
+      "priority": "p3",
+      "queries": [
+        "US politics",
+        "US economy",
+        "Wall Street",
+        "US healthcare",
+        "US immigration",
+        "US crime",
+        "US energy",
+        "US education",
+        "severe weather United States",
+        "US transportation",
+        "NFL",
+        "White House",
+        "US Congress",
+        "Supreme Court",
+        "US technology",
+        "US elections",
+        "Federal Reserve"
+      ]
+    }
+  ]
+}

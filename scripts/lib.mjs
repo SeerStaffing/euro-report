@@ -46,7 +46,9 @@ export function parseFeed(xml) {
       if (linkHref) url = linkHref[1];
     }
     const title = titleM ? cleanText(titleM[1]) : "";
-    if (title && /^https?:\/\//i.test(url)) out.push({ title, url });
+    const srcM = block.match(/<source[^>]*>([\s\S]*?)<\/source>/i);
+    const source = srcM ? cleanText(srcM[1]) : "";
+    if (title && /^https?:\/\//i.test(url)) out.push({ title, url, source });
   }
   return out;
 }
@@ -55,4 +57,38 @@ export function parseFeed(xml) {
 export function computeKeywords(title, keywords) {
   const lower = " " + String(title).toLowerCase() + " ";
   return keywords.filter(k => k.terms.some(t => lower.includes(String(t).toLowerCase()))).map(k => k.label);
+}
+
+// Google News titles look like "Headline - Source"; strip the trailing source.
+export function stripTrailingSource(title, source) {
+  if (source && title.endsWith(" - " + source)) return title.slice(0, -(source.length + 3)).trim();
+  return title;
+}
+
+// Normalized form for de-duplicating headlines across feeds/queries.
+export function normalizeTitle(title) {
+  return String(title).toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+}
+
+// Build a Google News RSS search URL.
+export function gnewsUrl(query, locale) {
+  return "https://news.google.com/rss/search?q=" + encodeURIComponent(query) + "&" + locale;
+}
+
+// Best-effort RSS/Atom autodiscovery from a site homepage (self-healing).
+export async function autodiscoverFeed(feedUrl, fetchText) {
+  let origin;
+  try { origin = new URL(feedUrl).origin; } catch { return null; }
+  let html;
+  try { html = await fetchText(origin); } catch { return null; }
+  const links = html.match(/<link[^>]+>/gi) || [];
+  for (const tag of links) {
+    if (/rel=["']alternate["']/i.test(tag) && /type=["']application\/(rss|atom)\+xml["']/i.test(tag)) {
+      const href = tag.match(/href=["']([^"']+)["']/i);
+      if (href) {
+        try { return new URL(href[1], origin).href; } catch { /* skip */ }
+      }
+    }
+  }
+  return null;
 }

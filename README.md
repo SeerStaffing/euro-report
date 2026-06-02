@@ -23,8 +23,17 @@ parser (GitHub Action, cron)  ->  PR adds items to data/approved.json
 ```
 
 - **`scripts/parse.mjs`** — runs in `.github/workflows/parser.yml` on a cron.
-  Fetches every feed in `data/feeds.json`, adds *new* headlines (deduped via
-  `data/seen.json`) to `data/approved.json`, and opens/updates a review PR.
+  Pulls from two source types, adds *new* headlines (deduped by URL **and**
+  normalized title via `data/seen.json`) to `data/approved.json`, and opens/updates
+  a review PR:
+  - **Direct feeds** (`data/feeds.json`) — curated EU + US RSS.
+  - **Tier-1 discovery** (`data/discovery.json`) — Google News RSS search per
+    region (EU/US), surfacing articles from across the whole press, not just the
+    curated feeds.
+- **Self-healing** (`data/feed-health.json`) — tracks each source's success/
+  failure; on a direct-feed failure it tries RSS autodiscovery from the site
+  homepage and remembers the resolved URL; repeatedly failing sources are flagged
+  unhealthy in the run summary.
 - **Approval = merging the PR.** Trim entries from the diff to reject them
   (`seen.json` stops them returning); edit `priority`/`featured` inline to re-rank.
 - **`scripts/build.mjs`** — runs in `.github/workflows/publish.yml` on push to
