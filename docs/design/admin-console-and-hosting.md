@@ -140,14 +140,22 @@ cross-repo links are needed:
    the source repo's publish workflow builds `dist/` from the source template +
    the content data, and deploys. No source commit occurs.
 
-### 5.1 Trigger options (open decision)
+### 5.1 Trigger options (DECIDED)
 | Option | How | Trade-off |
 |---|---|---|
-| **A. `repository_dispatch`** | content repo fires an event to source on push → publish runs immediately | needs a least-privilege token (GitHub App) with `actions: write` on source; lowest latency |
-| **B. Schedule** | source publish runs every ~15–30 min, fetches latest content, rebuilds | no cross-repo trigger auth; adds latency + idle runs |
+| **A. Event-driven** | content repo `curl`s a **Cloudflare deploy hook** on push → Cloudflare rebuilds immediately | sub-minute publish; deploy-hook URL is a secret (curator can't read it) |
+| **B. Schedule** | publish runs every ~15–30 min, rebuilds from latest content | no trigger auth; adds latency + idle runs |
 
-**Recommendation:** A via a **GitHub App** (least privilege, free), with B as a
-simple fallback for v1.
+**Decision:**
+- **Target = A, via Cloudflare Pages deploy hook** (sub-minute publishing). Because
+  hosting is Cloudflare (§6), the event mechanism is the deploy hook — **no GitHub
+  App required**. The content repo's push workflow just calls the hook URL (stored
+  as a secret; curator has no access).
+- **Interim = B (schedule)** while testing the parser/approval loop on the current
+  single-repo + GitHub Pages setup. Avoids building trigger plumbing that the
+  Cloudflare migration replaces.
+- **Migration to Cloudflare + event-driven: targeted for the week of 2026-06-02
+  (by ~2026-06-07).**
 
 ### 5.2 Reads
 - If the content repo is **public**, the build fetches `approved.json` via raw URL
@@ -170,9 +178,10 @@ scales and lets repos go private**.
 | Netlify / Vercel | $0 hobby | ✅ | Vercel commercial → Pro; strong DX |
 | S3 + CloudFront / Azure SWA | pennies | ✅ | Most control, more setup; overkill |
 
-**Recommendation: Cloudflare Pages + a custom domain** — ~$0 at real traffic, lets
-both repos go **private** for free, edge CDN + free analytics. Recurring cost is
-essentially **just the domain (~$12/yr)**.
+**DECIDED: Cloudflare Pages + a custom domain** — ~$0 at real traffic, lets both
+repos go **private** for free, edge CDN + free analytics, and provides the deploy
+hook used for event-driven publishing (§5.1). Recurring cost is essentially **just
+the domain (~$12/yr)**. Migration targeted for the week of 2026-06-02.
 
 ### 6.1 Production concerns (non-obvious)
 1. **Feed/content licensing** — public republishing touches BBC/Guardian/etc. RSS
@@ -193,11 +202,11 @@ essentially **just the domain (~$12/yr)**.
       rename); **match terms stay dev-managed** (source `config/topics.json`).
 - [x] **Keyword priority** = admin-console triage/bucketing only; **not** reflected
       on the prod site.
-- [ ] Cross-repo trigger: **`repository_dispatch` via GitHub App** (§5.1 A) vs
-      **schedule** (B)?
+- [x] Cross-repo trigger: **event-driven via Cloudflare deploy hook** (target);
+      **schedule** as the interim during testing.
+- [x] Host: **Cloudflare Pages** (migration week of 2026-06-02).
 - [ ] Parser stays an Action in the **source** repo writing to content (assumed) —
       confirm.
-- [ ] Host: stay on GitHub Pages, or cut over to Cloudflare Pages?
 - [ ] Repo visibility: keep public, or go private (drives §5.2 read auth)?
 - [ ] Custom domain: register one? which?
 
